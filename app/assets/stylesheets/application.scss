@@ -1,0 +1,10 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+article {
+  @extend .container-fluid;
+}
+
+section {
+  @extend .row;
+}
