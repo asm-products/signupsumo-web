@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117102201) do
+ActiveRecord::Schema.define(version: 20150117102703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20150117102201) do
     t.string   "data"
     t.boolean  "is_influential", default: false
     t.string   "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "registers", force: true do |t|
+    t.boolean  "is_influential"
+    t.boolean  "is_notified"
+    t.integer  "website_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
