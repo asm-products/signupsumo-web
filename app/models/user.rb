@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :websites, dependent: :delete_all
 
+  validates_uniqueness_of :email
+  validates_presence_of :email
+
 end
