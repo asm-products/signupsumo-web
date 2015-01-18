@@ -17,6 +17,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 gem 'slim-rails'
 
+gem 'clearbit'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
