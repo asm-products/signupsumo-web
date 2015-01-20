@@ -1,12 +1,17 @@
 class RegisterController < ApplicationController
   include ProfileHelper
+  include WebsitesHelper
 
   before_action :set_website, :set_profile, only: [:create]
   
   def create
     if @website
-      @register = @website.registers.create(is_influential: @profile.is_influential, profile: @profile)
-      response = "Registered Successfully"
+      if @website.registers.find(@profile)
+        response = "Already Registered"
+      else
+        @register = @website.registers.create(is_influential: @profile.is_influential, profile: @profile)
+        response = "Registered Successfully"
+      end
     else
       response = "BAD REQUEST"
     end
@@ -17,8 +22,7 @@ class RegisterController < ApplicationController
 
   private
     def set_website
-      uri = URI(params[:url])
-      host = uri.host
+      host = check_url(params[:url])
       @website = Website.find_by_secret_token_and_host(params[:token],host)
     end
 
