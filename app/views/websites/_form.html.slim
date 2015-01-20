@@ -1,0 +1,15 @@
+= form_for @website do |f|
+  - if @website.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@website.errors.count, "error")} prohibited this website from being saved:"
+      ul
+        - @website.errors.full_messages.each do |message|
+          li = message
+
+  = f.label("Enter a name for the Website")
+  = f.text_field(:name, autofocus: true)
+  br
+  = f.label("Enter the root URL for the Website.")
+  = f.text_field(:host, autofocus: true)
+
+  .actions = f.submit 'Done'
