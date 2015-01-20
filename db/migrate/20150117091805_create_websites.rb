@@ -4,9 +4,11 @@ class CreateWebsites < ActiveRecord::Migration
       t.references :user
       t.string :name
       t.string :host
-      t.string :secret_token
+      t.uuid :secret_token
 
       t.timestamps
     end
+
+    add_index :websites, :secret_token,   unique: true
   end
 end
