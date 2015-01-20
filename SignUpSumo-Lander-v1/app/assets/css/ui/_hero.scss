@@ -1,0 +1,170 @@
+/**
+ * Hero SCSS Partial
+ */
+
+.hero{
+	background: url('../images/bg/hero_bg@2x.jpg'),
+				$color-sumo-yellow;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: block;
+	padding-top: em(100);
+	position: relative;
+	//height: 90%;
+
+	@include respond-to(920){
+		height: auto;
+		padding-bottom: em(100);
+	}
+
+	h2{
+		color: $color-white;
+	}
+
+	.wrap{
+		margin-top: em(100);
+	}
+
+	.block_center{
+		max-width: em(860);
+	}
+}
+
+.email_wrap{
+	background-color: $color-off-white;
+	box-shadow: 0 -30px 40px rgba( $color-black, 0.25 );
+	padding: em(20) em(40);
+	position: relative;
+
+	@include respond-to(1200){
+		padding: em(20) em(30);
+
+		&:after{
+			background-image: url('../images/bg/mail_border.png');
+			bottom: -10px;
+			content:'';
+			height: 11px;
+			left: 0;
+			position: absolute;
+			width: 100%;
+		}
+	}
+	@include respond-to(760){
+		padding: em(20) em(20);
+	}
+}
+
+.email_toolbar{
+	background-color: $color-grey;
+	border-radius: 18px 18px 0 0;
+	display: block;
+	height: 36px;
+	left: 0;
+	position: absolute;
+	top: -36px;
+	width: 100%;
+}
+
+.toolbar_button{
+	border-radius: 5px;
+	display: inline-block;
+	height: 10px;
+	margin-right: 5px;
+	margin-top: 3px;
+	width: 10px;
+	vertical-align: middle;
+}
+
+.toolbar_button-red{
+	@extend .toolbar_button;
+	background-color: $color-red;
+	margin-left: 30px;
+}
+
+.toolbar_button-yellow{
+	@extend .toolbar_button;
+	background-color: $color-yellow;
+}
+
+.toolbar_button-green{
+	@extend .toolbar_button;
+	background-color: $color-green;
+}
+
+
+.email_header{
+	border-bottom: 2px solid $color-sumo-yellow;
+	list-style: none;
+	padding-bottom: em(20);
+	position: relative;
+
+	li{
+		margin-top: em(12);
+	}
+
+	span{
+		font-weight: 900;
+	}
+
+	&:before{
+		background-color: $color-sumo-blue;
+		border-radius: 5px;
+		content: "";
+		display: block;
+		height: 10px;
+		left: em(10);
+		position: absolute;
+		top: em(10);
+		width: 10px;
+	}
+}
+
+.email_content{
+	list-style: disc;
+	li{
+		margin-top: em(12);
+	}
+
+	a{
+		color: $color-sumo-blue;
+	}
+
+	span{
+		font-weight: 900;
+	}
+}
+
+.hero_points{
+	list-style: none;
+	li{
+		font-weight: 700;
+		margin-top: em(30);
+
+		h6{
+			padding-left: em(30);
+			position: relative;
+
+			&:before{
+				color: $color-white;
+				content: '>';
+				display: inline-block;
+				font-weight: 900;
+				left: 0;
+				position: absolute;
+				top: 0;
+				width: 30px;
+			}
+		}
+
+		
+	}
+	span{
+		font-weight: 900;
+	}
+
+	@include respond-to(920){
+		margin-top: em(80);
+		padding-left: 0;
+		//text-align: center;
+	}
+}

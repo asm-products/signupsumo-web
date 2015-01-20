@@ -1,0 +1,50 @@
+/**
+ * Masthead SCSS Partial
+ */
+
+
+.masthead{
+	display: block;
+	position: relative;
+
+	nav{
+		display: inline-block;
+		//float: right;
+		text-align: right;
+		vertical-align: middle;
+		width: calc(100% - 185px);
+
+		@include respond-to(480){
+			width: calc(100% - 110px);
+		}
+
+		li{
+			display: inline-block;
+			margin-left: em(40);
+		}
+	}
+}
+
+.masthead_inner{
+	display: block;
+	left: 0;
+	padding-top: 20px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+
+	@include respond-to(480){
+		padding-top: 5px;
+	}
+}
+
+.logo{
+	display: inline-block;
+	width: em(180);
+	vertical-align: middle;
+
+	@include respond-to(480){
+		width: em(100);
+	}
+}

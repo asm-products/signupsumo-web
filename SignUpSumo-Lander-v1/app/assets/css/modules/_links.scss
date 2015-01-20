@@ -1,0 +1,44 @@
+/**
+ * Links SCSS Partial
+ *
+ * @requires framework/_colors.scss
+ */
+
+
+/* ==|== Links =================
+	Primary
+========================================== */
+
+a {
+	border-bottom: 0px solid $color-black;
+	color:$color-link-primary;
+	font-weight: 700;
+	padding: 4px 0;
+	text-decoration: none;
+	transition:all .25s cubic-bezier(#{$bezier-nice});
+
+	&:hover {
+		color:$color-link-primary-hover;
+		border-bottom: 3px solid $color-black;
+
+	}
+	&:focus {
+		// This animation creates a small jump when you :focus to a link
+		// which allows users to understand which is toggled when tabbed to
+		// See: http://sterli.nl/1uQSOEn
+		animation:link-focus .25s cubic-bezier(#{$bezier-nice});
+	}
+	&:active,
+	&:focus {
+		color:$color-link-primary-active;
+	}
+}
+
+@keyframes link-focus {
+	0% {
+		transform:scale(1.1);
+	}
+	100% {
+		transform:scale(1);
+	}
+}

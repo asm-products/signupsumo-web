@@ -1,0 +1,68 @@
+/**
+ * Grid SCSS Partial
+ *
+ * @requires framework/_variables.scss
+ * 
+ */
+
+/**
+*   ##  HTML
+*       The comments immediately after each <div class="grid__unit"></div> element
+*       are vital for the grid to work.
+*
+* 	<div class="g module-name">
+* 		<div class="grid__unit">
+*			<p>Lorem Ipsum</p>
+* 		<div><!--
+* 	 --><div class="grid__unit">
+* 			<p>Pellentesque elim</p>
+* 		</div><!--
+* 	 --><div class="grid__unit">
+* 			<p>Dolor Sit</p>
+* 		</div>
+* 	</div>
+*
+*
+*   ##  CSS (Sass)
+*       Grid units are controlled by their parent element. In the example
+*       the parent is .module-name.
+*       The grid is then declared for min-width breakpoints using a Sass map
+*       defaulting at 100% at its smallest. This allows as many breakpoints to be
+*       declared per grid set.
+*       If multiple modules use the same grid layout, just add more module-names
+*       To the parent selector as shown below:
+*
+*   .grid__unit {
+*       .module-name &,
+*       .module-name-2 & { 
+*           @include grid-column((450: 1, 750: 2, 950: 3, 1200: 6));
+*       }    
+*       .module-name-3 & { 
+*           @include grid-column((450: 1, 950: 2, 1200: 4));
+*       }    
+*   }
+*/
+
+@mixin grid-column($cols) {
+    @each $col-break, $col-num in $cols {
+        @include respond-to-min($col-break) {
+            width: (100%/ $col-num);
+        }
+    }
+}
+
+.grid {
+    margin: 0 rem(-($grid-gutter/2));
+}
+.grid__unit {
+    display: inline-block;
+    padding: 0 rem($grid-gutter/2);
+    vertical-align: top;
+    width:100%;
+    .module-name & {
+        @include grid-column(($bp-tiny: 1, $bp-small: 2, $bp-large: 4));
+    }
+    .module-name-2 & {
+        @include grid-column(($bp-tiny: 2, $bp-small: 2, $bp-mid: 3, $bp-large: 6));
+    }
+}

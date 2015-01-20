@@ -1,0 +1,78 @@
+/**
+ * Mixins SCSS File
+ */
+
+@mixin cf() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	*zoom: 1;
+}
+
+@mixin cover($type: 'absolute') {
+	height:100%;
+	left:0;
+	position: $type;
+	top:0;
+	width:100%;
+}
+
+@mixin not-touch() {
+	@media not all and (orientation:landscape) and (orientation:portrait) {
+		@content;
+	}
+}
+
+@mixin respond-to($breakpoint) {
+	$em: ($breakpoint / 16);
+	$unit: 'em';
+	@media only screen and (max-width:$em + $unit) {
+		@content;
+	}
+}
+@mixin respond-to-min($breakpoint) {
+	$em: ($breakpoint / 16);
+	$unit: 'em';
+	@media only screen and (min-width:$em + $unit) {
+		@content;
+	}
+}
+@mixin respond-to-height($breakpoint) {
+	$em: ($breakpoint / 16);
+	$unit: 'em';
+	@media only screen and (max-height:$em + $unit) {
+		@content;
+	}
+}
+
+@mixin respond-to-min-height($breakpoint) {
+	$em: ($breakpoint / 16);
+	$unit: 'em';
+	@media only screen and (min-height:$breakpoint + $unit) {
+		@content;
+	}
+}
+
+
+@mixin orientation($o: 'portrait') {
+	@media (orientation: $o) {
+		@content;
+	}
+}
+
+@mixin aspect-ratio($x, $y, $type: "max") {
+	$query: '';
+	@if $type == 'min' {
+		$query: 'min-aspect-ratio';
+	} @else {
+		$query: 'max-aspect-ratio';
+	}
+	@media ($query: #{$x}/#{$y}) {
+		@content;
+	}
+}

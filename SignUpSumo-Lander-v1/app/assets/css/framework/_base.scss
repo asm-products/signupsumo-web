@@ -1,0 +1,98 @@
+/**
+ * Base SCSS File
+ *
+ * @requires _type.scss, _color.scss
+ */
+
+* {
+	box-sizing:border-box;
+}
+
+html,body {
+	min-height:100%;
+	//height: 100%;
+}
+
+html {
+	background: $color-background;
+	font-size:percentage($font-default-size / 16);
+	overflow-y: scroll;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+	color:$color-text;
+	font-family:$font-stack-regular;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	font-smoothing:antialiased;
+}
+
+body {
+	font-size:1em;
+	line-height:$font-default-line-height;
+}
+
+hr {
+	margin:rem(50) auto;
+	max-width:rem(600);
+	width:100%;
+}
+
+
+body {
+	font-size:1em;
+	line-height:$font-default-line-height;
+	&:before, &:after{
+		background-color: $color-black;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		width: 10px;
+		z-index: 99;
+	}
+	&:before{
+		left: 0;
+	}
+	&:after{
+		right: 0;
+	}
+	
+	@include respond-to($bp-small){
+		&:before, &:after{
+			display: none;
+		}
+	}
+}
+
+html{
+	&:before, &:after{
+		background-color: $color-black;
+		left: 0;
+		content: '';
+		display: block;
+		height: 10px;
+		position: fixed;
+		right: 0;
+		width: 100%;
+		z-index: 99;
+	}
+	&:before{
+		top: 0;
+	}
+	&:after{
+		bottom: 0;
+	}
+	
+	@include respond-to($bp-small){
+		&:before, &:after{
+			display: none;
+		}
+	}
+}

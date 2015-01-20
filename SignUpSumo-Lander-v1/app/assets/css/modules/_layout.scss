@@ -1,0 +1,11 @@
+/**
+ * Layout SCSS Partial
+ *
+ * @requires framework/_type.scss, framework/_variables.scss
+ */
+
+.group {
+	margin:0 auto;
+	max-width:rem($layout-max-width);
+	width:93.75%;
+}

@@ -1,0 +1,37 @@
+/**
+ * Variables SCSS File
+ */
+
+ /*
+ 	* Breakpoint declatations
+ */
+ $bp-tiny: 450;
+ $bp-small: 750;
+ $bp-mid: 950;
+ $bp-large: 1200;
+ $bp-huge: 1500;
+
+ /*
+ 	* Layout width
+ */
+
+ $layout-max-width: 1200;
+
+ /*
+ * Grid gutter
+ */
+
+ $grid-gutter: 20;
+
+ /*
+ * Type
+ */
+
+$font-default-size: 20;
+
+$font-default-line-height: 1.5;
+$font-header-line-height: 1.2;
+
+// Our base font stacks.
+$font-stack-regular: 	"museo-sans-rounded",sans-serif;
+$font-stack-header: 	"museo-sans-rounded",sans-serif;
