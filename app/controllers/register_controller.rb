@@ -6,7 +6,7 @@ class RegisterController < ApplicationController
   
   def create
     if @website
-      if @website.registers.find(@profile)
+      if @website.registers.find_by_profile_id(@profile)
         response = "Already Registered"
       else
         @register = @website.registers.create(is_influential: @profile.is_influential, profile: @profile)

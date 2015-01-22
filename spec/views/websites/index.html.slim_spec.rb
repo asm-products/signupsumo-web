@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "websites/index", :type => :view do
   before(:each) do
     assign(:websites, [
-      Website.create!(),
-      Website.create!()
+      Fabricate(:website),
+      Fabricate(:website, user: Fabricate(:user, email: 'abracadebra@example.com'))
     ])
   end
 

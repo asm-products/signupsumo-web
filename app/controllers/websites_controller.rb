@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  include WebsitesHelper
+
   before_action :set_website, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -24,10 +24,7 @@ class WebsitesController < ApplicationController
 
   def create
     @user = current_user
-    new_data = website_params
-    new_data["host"] = check_url(new_data["host"])
-    new_data["secret_token"] = SecureRandom.hex
-    @website = @user.websites.new(new_data)
+    @website = @user.websites.new(website_params)
 
     if @website.save
       redirect_to @website, notice: 'Website successfully created.'
