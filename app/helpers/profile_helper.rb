@@ -1,6 +1,6 @@
 module ProfileHelper
 
-  Clearbit.key = ENV["CLEARBIT_API_KEY"]
+  Clearbit.key = "0ce37f6767aa10faeca517b6296431b4"
 
   def find_profile email
     if profile = Profile.find_by_email(email)

@@ -102,7 +102,7 @@ RSpec.describe WebsitesController, :type => :controller do
         website = Website.create! valid_attributes
         put :update, {:id => website.to_param, :website => new_attributes}, valid_session
         website.reload
-        skip("Add assertions for updated state")
+        expect(website.name).to_not eq(valid_attributes[:name])
       end
 
       it "assigns the requested website as @website" do
@@ -125,9 +125,6 @@ RSpec.describe WebsitesController, :type => :controller do
         expect(assigns(:website)).to eq(website)
       end
 
-      it "re-renders the 'edit' template" do
-        skip('Create a new website and edit it with invalid params')
-      end
     end
   end
 
