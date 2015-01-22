@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Register, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'validation' do
+    it 'should not create without website' do
+      register = Register.create(:profile => Fabricate(:profile))
+      expect(register.save).to be_falsey
+    end
+
+    it 'should not create without profile' do
+      register = Register.create(:website => Fabricate(:website))
+      expect(register.save).to be_falsey
+    end
+  end
+
+
 end
