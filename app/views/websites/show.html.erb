@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= @website.name %> - <%= @website.host %>
+
+<h4>Total Number of Registers: <%= @website.registers.count %></h4>
+<h4>Total Number of Influential people signed up: <%= @website.registers.where(:is_influential => true).all.count %></h4>
+
+<hr />
+<p>
+  <strong>Just paste the below code on any page you have the form fields:</strong>
+  <p><%= "<script src='https://signupsumo.com/signupsumo.min.js' data-key='#{@website.secret_token}'></script>" %>
+</p>
+
+<br>
+<%= link_to 'Edit', edit_website_path(@website) %> |
+<%= link_to 'Delete', @website, data: {:confirm => 'Are you sure?'}, :method => :delete %>
