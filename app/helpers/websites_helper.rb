@@ -12,4 +12,13 @@ module WebsitesHelper
       return
     end
   end
+
+  def all_registers website
+    website.registers.count
+  end
+
+  def influential_registers website
+    website.registers.where(:is_influential => true).all.count
+  end
+
 end

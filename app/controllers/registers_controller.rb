@@ -1,8 +1,9 @@
-class RegisterController < ApplicationController
+class RegistersController < ApplicationController
   include ProfileHelper
   include WebsitesHelper
 
-  before_action :set_website, :set_profile, only: [:create]
+  before_action :verify_website, :set_profile, only: [:create]
+  before_action :set_website, only: [:index]
   
   def create
     if @website
@@ -20,13 +21,21 @@ class RegisterController < ApplicationController
     return 
   end
 
+  def index
+    @registers = @website.registers.all
+  end
+
   private
-    def set_website
+    def verify_website
       host = check_url(params[:url])
       @website = Website.find_by_secret_token_and_host(params[:token],host)
     end
 
     def set_profile
       @profile = find_profile(params[:email])
+    end
+
+    def set_website
+      @website = Website.find_by_id(params[:id])
     end
 end

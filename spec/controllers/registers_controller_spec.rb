@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RegisterController, :type => :controller do
+RSpec.describe RegistersController, :type => :controller do
 
   let (:website) { Fabricate(:website) }
 
