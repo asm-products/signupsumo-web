@@ -1,25 +1,32 @@
 <p id="notice"><%= notice %></p>
 <h1>Registers for <%= @website.name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Registered Email</th>
-      <th>Registered on</th>
+<% if @registers.count == 0 %>
+  <h3>There is no new registers on <%= @website.host %></h3>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @registers.each do |register| %>
+<% else %>
+  
+  <table>
+    <thead>
       <tr>
-        <td><%= register.profile.email %></td>
-        <td><%= register.created_at %></td>
+        <th>Registered Email</th>
+        <th>Registered on</th>
+
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @registers.each do |register| %>
+        <tr>
+          <td><%= register.profile.email %></td>
+          <td><%= register.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
 
 <br>
 
