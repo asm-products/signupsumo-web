@@ -12,11 +12,13 @@ Rails.application.routes.draw do
 
   get 'scripts/test', to: 'scripts#test'
 
-  resources 'websites'
+  resources 'websites' do
+    get 'registers', to: 'registers#index', on: :member
+  end
   
   scope '/api' do 
     scope '/v1' do
-      get '/newsignup', to: 'register#create'
+      get '/newsignup', to: 'registers#create'
     end
   end
 

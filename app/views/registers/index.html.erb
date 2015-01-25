@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<h1>Registers for <%= @website.name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Registered Email</th>
+      <th>Registered on</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registers.each do |register| %>
+      <tr>
+        <td><%= register.profile.email %></td>
+        <td><%= register.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '<- Back to manage page', @website %>
