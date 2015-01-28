@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     root :to => "websites#index", as: :authenticated_root
   end
 
-  root 'welcome#index'
+  root 'static#index'
 
   get ':api_key/signupsumo.:format', to: 'scripts#show', api_key: /[0-9a-f]{32}/i, format: :js
 
