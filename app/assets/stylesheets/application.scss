@@ -1,8 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "screen.min";
-@import "print.min";
-@import "unsupported.min";
+@import "screen";
+@import "unsupported";
 
 article {
   @extend .container-fluid;
