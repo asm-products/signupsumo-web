@@ -1,10 +1,24 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+    :validatable
 
-  has_many :websites, dependent: :delete_all
+  has_many :websites,
+    dependent: :delete_all
 
-  validates_uniqueness_of :email
-  validates_presence_of :email
+  validates :email,
+    presence: true,
+    uniqueness: true
 
+  before_validation :set_authentication_token
+
+  def set_authentication_token
+    self.authentication_token ||= generate_authentication_token
+  end
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).exists?
+    end
+  end
 end
