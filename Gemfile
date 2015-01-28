@@ -2,21 +2,18 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.1.8'
-gem 'pg'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'meta-tags'
-
-gem 'devise'
-
-gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
-
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'clearbit'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'devise'
+gem 'jquery-rails'
+gem 'meta-tags'
+gem 'pg'
+gem 'rails', '4.2.0'
+gem 'sass-rails', '~> 5.0.1'
+gem 'turbolinks'
+gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'spring'
@@ -24,12 +21,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'pry'
   gem 'fabrication'
+  gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'puma'
+  gem 'rails_12factor'
 end
