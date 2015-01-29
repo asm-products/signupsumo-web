@@ -363,21 +363,21 @@ $container-lg:                 $container-large-desktop
 $navbar-height:                    200px
 $navbar-margin-bottom:             $line-height-computed
 $navbar-border-radius:             0
-$navbar-padding-horizontal:        floor(($grid-gutter-width / 2))
+$navbar-padding-horizontal:        40px
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2)
 $navbar-collapse-max-height:       340px
 
 $navbar-default-color:             $white
-$navbar-default-bg:                $orange
+$navbar-default-bg:                $orange-light
 $navbar-default-border:            transparent
 
 // Navbar links
 $navbar-default-link-color:                $white
-$navbar-default-link-hover-color:          lighten($white, 10%)
+$navbar-default-link-hover-color:          transparentize($white, 0.1)
 $navbar-default-link-hover-bg:             transparent
-$navbar-default-link-active-color:         $white
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%)
-$navbar-default-link-disabled-color:       $white
+$navbar-default-link-active-color:         transparentize($white, 0.2)
+$navbar-default-link-active-bg:            transparent
+$navbar-default-link-disabled-color:       transparentize($white, 0.5)
 $navbar-default-link-disabled-bg:          transparent
 
 // Navbar brand label
@@ -422,7 +422,7 @@ $navbar-inverse-toggle-border-color:        #333
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          10px 15px
+$nav-link-padding:                          12px 24px
 $nav-link-hover-bg:                         $gray-lighter
 
 $nav-disabled-link-color:                   $gray-light
