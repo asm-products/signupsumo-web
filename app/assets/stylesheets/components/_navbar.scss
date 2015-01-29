@@ -1,6 +1,17 @@
-.navbar-header a,
 .navbar-nav a {
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.navbar-brand {
+  font-size: 36px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 36px;
+  padding: 68px 68px;
+
+  &:first-line {
+    color: $blue-dark;
+  }
 }

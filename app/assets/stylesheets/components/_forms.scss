@@ -1,0 +1,11 @@
+label {
+  color: $gray-lighter;
+  font-weight: normal;
+}
+
+.form-control {
+  &:focus,
+  .focus {
+    box-shadow: none;
+  }
+}

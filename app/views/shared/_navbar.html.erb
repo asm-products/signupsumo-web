@@ -8,17 +8,25 @@
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to 'SignupSumo', root_path, class: 'navbar-brand' %>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        Signup<br>
+        Sumo
+      <% end %>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= active(new_user_session_path) %>">
-          <%= link_to 'Signin', new_user_session_path %>
-        </li>
-        <li class="<%= active(new_user_registration_path) %>">
-          <%= link_to 'Signup', new_user_registration_path %>
-        </li>
+        <% if current_page?(new_user_registration_path) %>
+          <li>
+            <%= link_to 'Signin', new_user_session_path %>
+          </li>
+        <% end %>
+
+        <% if current_page?(new_user_session_path) %>
+          <li>
+            <%= link_to 'Signup', new_user_registration_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

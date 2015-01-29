@@ -14,9 +14,9 @@ $gray-darker:            lighten($gray-base, 13.5%) // #222
 $gray-dark:              lighten($gray-base, 20%)   // #333
 $gray:                   lighten($gray-base, 33.5%) // #555
 $gray-light:             lighten($gray-base, 46.7%) // #777
-$gray-lighter:           lighten($gray-base, 93.5%) // #eee
+$gray-lighter:           lighten($gray-base, 60%)   // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) // #337ab7
+$brand-primary:         #27c9d2
 $brand-success:         #5cb85c
 $brand-info:            #5bc0de
 $brand-warning:         #f0ad4e
@@ -28,6 +28,8 @@ $white:                 #ffffff
 $orange-dark:           #ee9912
 $orange:                #f8a31c
 $orange-light:          #ffac27
+
+$blue-dark:             #141c46
 
 //== Scaffolding
 //
@@ -56,7 +58,7 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace
 $font-family-base:        $font-family-sans-serif
 
-$font-size-base:          14px
+$font-size-base:          16px
 $font-size-large:         ceil(($font-size-base * 1.25)) // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) // ~12px
 
@@ -74,7 +76,7 @@ $line-height-computed:    floor(($font-size-base * $line-height-base)) // ~20px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit
-$headings-font-weight:    500
+$headings-font-weight:    800
 $headings-line-height:    1.1
 $headings-color:          inherit
 
@@ -114,8 +116,8 @@ $padding-xs-horizontal:     5px
 $line-height-large:         1.3333333 // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5
 
-$border-radius-base:        4px
-$border-radius-large:       6px
+$border-radius-base:        6px
+$border-radius-large:       9px
 $border-radius-small:       3px
 
 //** Global color for active items (e.g., navs or dropdowns).
@@ -188,14 +190,14 @@ $btn-link-disabled-color:        $gray-light
 //##
 
 //** `<input>` background color
-$input-bg:                       #fff
+$input-bg:                       $white
 //** `<input disabled>` background color
 $input-bg-disabled:              $gray-lighter
 
 //** Text color for `<input>`s
 $input-color:                    $gray
 //** `<input>` border color
-$input-border:                   #ccc
+$input-border:                   $gray-lighter
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -207,7 +209,7 @@ $input-border-radius-large:      $border-radius-large
 $input-border-radius-small:      $border-radius-small
 
 //** Border color for inputs on focus
-$input-border-focus:             #66afe9
+$input-border-focus:             $gray
 
 //** Placeholder text color
 $input-color-placeholder:        #999
@@ -350,7 +352,7 @@ $container-desktop:            (940px + $grid-gutter-width)
 $container-md:                 $container-desktop
 
 // Large screen / wide desktop
-$container-large-desktop:      (1140px + $grid-gutter-width)
+$container-large-desktop:      $container-desktop
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop
 
@@ -382,7 +384,7 @@ $navbar-default-link-disabled-bg:          transparent
 
 // Navbar brand label
 $navbar-default-brand-color:               $navbar-default-link-color
-$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%)
+$navbar-default-brand-hover-color:         $navbar-default-brand-color
 $navbar-default-brand-hover-bg:            transparent
 
 // Navbar toggle
@@ -704,18 +706,18 @@ $list-group-link-heading-color: #333
 //
 //##
 
-$panel-bg:                    #fff
-$panel-body-padding:          15px
-$panel-heading-padding:       10px 15px
+$panel-bg:                    $white
+$panel-body-padding:          30px
+$panel-heading-padding:       30px
 $panel-footer-padding:        $panel-heading-padding
 $panel-border-radius:         $border-radius-base
 
 //** Border color for elements within panels
-$panel-inner-border:          #ddd
-$panel-footer-bg:             #f5f5f5
+$panel-inner-border:          $orange
+$panel-footer-bg:             $white
 
 $panel-default-text:          $gray-dark
-$panel-default-border:        #ddd
+$panel-default-border:        transparent
 $panel-default-heading-bg:    #f5f5f5
 
 $panel-primary-text:          #fff
