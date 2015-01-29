@@ -4,7 +4,6 @@ ruby '2.2.0'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'clearbit'
 gem 'clearbit-leadscore'
