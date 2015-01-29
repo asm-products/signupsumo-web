@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   resources 'websites' do
     get 'registers', to: 'registers#index', on: :member
   end
-  
-  scope '/api' do 
+
+  scope '/api' do
     scope '/v1' do
-      get '/newsignup', to: 'registers#create'
+      match '/newsignup' => 'registers#create', via: [:get, :post]
     end
   end
 

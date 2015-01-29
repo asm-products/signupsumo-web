@@ -6,5 +6,7 @@ class ScriptsController < ApplicationController
     @api_key = params[:api_key]
   end
 
-  def test; end
+  def test
+    @api_key = "6b87c6f41586fcb18e08ef638e332a12"
+  end
 end
