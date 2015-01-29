@@ -10,7 +10,7 @@ class @SignupSumo
     DEFAULT_EMAIL_INPUT_SELECTOR = 'input[type="text"]'
 
     constructor: ->
-      @apiKey = "<%= @api_key %>"
+      @apiKey = document.querySelector('script[data-token]').getAttribute('data-token')
       @debug = true
       @installListeners()
 
