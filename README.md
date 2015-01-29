@@ -38,5 +38,6 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
   - View the app at `IP_ADDRESS:3000`
 
 #### Development notes
+
 - If you modify the `Gemfile` or the `Dockerfile` you will need to run `fig build` to rebuild the container.
 - If you get an error in building; try removing the `Gemfile.lock` and trying `fig build; fig up` again
