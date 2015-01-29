@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%= stylesheet_link_tag "application", media: "all" %>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-<%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Signupsumo at your service</title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script src="//use.typekit.net/atx1ssj.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signupsumo at your service</title>
 </head>
 <body>
-  <div class="container-fluid">
-
-    <%= yield %>
-
-  </div>
-
+  <%= yield %>
 </body>
 </html>

@@ -1,8 +1,9 @@
 @import "bootstrap-sprockets";
-@import "bootstrap";
 @import "variables";
-@import "screen";
-@import "unsupported";
+@import "bootstrap";
+
+@import "base";
+@import "components/*";
 
 article {
   @extend .container-fluid;
