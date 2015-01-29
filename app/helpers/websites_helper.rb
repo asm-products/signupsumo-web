@@ -2,6 +2,7 @@ module WebsitesHelper
 
   def check_url fullurl
     if !!URI.parse(fullurl)
+      fullurl.sub!(/www./, '')  if fullurl.include? "www."
       uri = URI.parse(fullurl)
       if uri.kind_of?(URI::HTTP) or uri.kind_of?(URI::HTTPS)
         uri.host
