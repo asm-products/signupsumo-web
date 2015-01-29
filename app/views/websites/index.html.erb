@@ -1,29 +1,69 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/navbar' %>
 
-<h1>Listing Websites</h1>
+<div class="callout">
+  <div class="container">
+    <h1>Let's get you all setup</h1>
+    <p class="lead">Just include our tiny script on your signup page</p>
+    <p>We've made things pretty easy. Just grab your personalized script tag
+    below and include it anywhere on your signup page. We'll keep an eye on
+    your signups and shoot you an email when that special someone signs up.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Host</th>
-      <th>No. of Registers</th>
+    <div class="panel">
+      <div class="panel-body">
+        <code>
+          <%= %{<script src="//assets.signupsumo.com/script.js" data-token="#{current_user.authentication_token}"></script>} %>
+        </code>
+      </div>
+    </div>
+  </div>
+</div>
 
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<div style="background-color: white">
+  <div class="container" style="padding-top: 40px; padding-bottom: 40px">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <h3>Activity</h3>
+        <p class="lead">Still waiting on that first signup. Keep checking here</p> 
 
-  <tbody>
-    <% @websites.each do |website| %>
-      <tr>
-        <td><%= link_to website.name, website %></td>
-        <td><%= website.host %></td>
-        <td><%= website.registers.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div style="height: 400px; width: 100%; border: 1px solid gray">
+          [graph or something]
+        </div>
+      </div>
 
-<br>
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <h3>When the time is right</h3>
+        <p class="lead">Upgrade!</p> 
 
-<%= link_to 'New Website', new_website_path %>
+        <h1 style="font-size: 140px">$9/mo</h1>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <h3>Your account</h3>
+        <p>People change, but you know some people never do. You know when people change, they gain a piece but they lose one too. &#9835;</p> 
+
+        <%= form_for(current_user, url: edit_user_registration_path) do |f| %>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, class: 'form-control input-lg', placeholder: 'Your email' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg', placeholder: 'Mash the keyboard' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg', placeholder: 'Just to double check' %>
+          </div>
+
+          <%= f.submit "Save", class: 'btn btn-primary btn-lg', style: 'margin-top: 24px' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,16 +16,22 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <% if current_page?(new_user_registration_path) %>
+        <% if signed_in? %>
           <li>
-            <%= link_to 'Signin', new_user_session_path %>
+            <%= link_to 'Sign out', destroy_user_session_path %>
           </li>
-        <% end %>
+        <% else %>
+          <% if current_page?(new_user_registration_path) %>
+            <li>
+              <%= link_to 'Sign in', new_user_session_path %>
+            </li>
+          <% end %>
 
-        <% if current_page?(new_user_session_path) %>
-          <li>
-            <%= link_to 'Signup', new_user_registration_path %>
-          </li>
+          <% if current_page?(new_user_session_path) %>
+            <li>
+              <%= link_to 'Sign up', new_user_registration_path %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
