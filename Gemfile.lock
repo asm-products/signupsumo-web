@@ -45,6 +45,8 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bugsnag (2.7.1)
+      multi_json (~> 1.0)
     builder (3.2.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
@@ -216,6 +218,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
+  bugsnag
   clearbit
   clearbit-leadscore
   coffee-rails (~> 4.1.0)
