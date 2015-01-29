@@ -24,7 +24,8 @@
 
   <script src="//use.typekit.net/atx1ssj.js"></script>
   <script>try{Typekit.load();}catch(e){}</script>
-  <%= stylesheet_link_tag "screen", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= stylesheet_link_tag "screen", media: "all" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
 <body>
@@ -106,7 +107,7 @@
       <div class="bullet-point">
         <div class="number">3</div>
         <div class="point">There is no step 3 to finding out when cool people sign up to your new product.</div>
-        <a href="/signup" class="btn">Try now with 10 profiles free!</a>
+        <a href="/signup" class="btn btn-trynow">Try now with 10 profiles free!</a>
       </div>
       <div class="kicker">
         <p>Only <span>$9.99</span> a month for upto <span>100</span> hand picked influential members of your product.</p>
