@@ -1,10 +1,13 @@
 class ChecksInfluenceJob < ActiveJob::Base
+  MIN_INFLUENCER_SCORE = 0.75
+
   queue_as :default
 
   def perform(email)
-    # 1. Get user data from Clearbit
-    # 2. Determine if influential
-    # 3. Send email or bail
-    # 4. Record infleunce in db or at least a record of the email
+    result = Clearbit::LeadScore.lookup(email)
+    return unless result && result.baller?
+
+    # Send email or bail
+    # Record infleunce in db or at least a record of the email
   end
 end

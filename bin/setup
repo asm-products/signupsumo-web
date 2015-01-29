@@ -18,6 +18,10 @@ Dir.chdir APP_ROOT do
     system "cp config/database.yml.sample config/database.yml"
   end
 
+  unless File.exist?(".env")
+    system "cp .env.sample .env"
+  end
+
   puts "\n== Preparing database =="
   system "bin/rake db:setup"
 

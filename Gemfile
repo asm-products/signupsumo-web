@@ -2,9 +2,12 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
 gem 'clearbit'
+gem 'clearbit-leadscore'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'jquery-rails'

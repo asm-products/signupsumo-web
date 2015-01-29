@@ -40,6 +40,7 @@ GEM
     autoprefixer-rails (5.0.0.3)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
@@ -49,6 +50,10 @@ GEM
       timers (~> 1.1.0)
     clearbit (0.1.4)
       nestful (~> 1.0.7)
+    clearbit-leadscore (0.0.5)
+      awesome_print
+      clearbit (~> 0.1.1)
+      thread
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -67,6 +72,8 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     fabrication (2.12.2)
@@ -190,6 +197,7 @@ GEM
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
+    thread (0.1.4)
     thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
@@ -210,8 +218,10 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.3.3)
   clearbit
+  clearbit-leadscore
   coffee-rails (~> 4.1.0)
   devise
+  dotenv-rails
   fabrication
   foreman
   jquery-rails
