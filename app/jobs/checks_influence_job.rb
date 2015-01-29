@@ -3,11 +3,12 @@ class ChecksInfluenceJob < ActiveJob::Base
 
   queue_as :default
 
-  def perform(email)
-    result = Clearbit::LeadScore.lookup(email)
-    return unless result && result.baller?
+  def perform(user, email)
+    signup = Clearbit::LeadScore.lookup(email)
+    return unless signup && signup.baller?
 
-    # Send email or bail
+    InfluencerMailer.influencer_email(user, signup).deliver
+
     # Record infleunce in db or at least a record of the email
   end
 end
