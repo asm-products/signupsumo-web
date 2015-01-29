@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users,
-    path_names: {
-      sign_in: 'signin',
-      sign_out: 'signout',
-      sign_up: 'signup'
-    }
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'}
 
   authenticated :user do
-    root :to => "pages#config", as: :authenticated_root
+    root :to => "websites#index", as: :authenticated_root
   end
 
-  get '/setup' => 'pages#setup'
-
-  get '/:api_key/signupsumo.:format', to: 'scripts#show', api_key: /[0-9a-f]{32}/i, format: :js
-  get '/scripts/test', to: 'scripts#test'
-
   root 'static#index'
+
+  get ':api_key/signupsumo.:format', to: 'scripts#show', api_key: /[0-9a-f]{32}/i, format: :js
+
+  get 'scripts/test', to: 'scripts#test'
+
+  resources 'websites' do
+    get 'registers', to: 'registers#index', on: :member
+  end
+  
+  scope '/api' do 
+    scope '/v1' do
+      get '/newsignup', to: 'registers#create'
+    end
+  end
+
 end
