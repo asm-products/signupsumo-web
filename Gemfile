@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
@@ -18,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem "therubyracer"
 end
 
 group :development, :test do
