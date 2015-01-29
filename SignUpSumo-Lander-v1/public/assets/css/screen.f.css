@@ -1140,18 +1140,20 @@ a:active, a:focus {
 ========================================== */
 /* line 69, ../modules/_buttons.scss */
 .btn--secondary {
-  color: #ae0000;
+  background: transparent;
+  border: 4px solid #27C9D2;
+  color: #27C9D2;
 }
-/* line 72, ../modules/_buttons.scss */
+/* line 74, ../modules/_buttons.scss */
 .btn--secondary:hover, .btn--secondary:focus {
-  background: #00ae00;
-  border-color: #00ae00;
+  background: #27C9D2;
+  border-color: #27C9D2;
   color: #fff;
 }
-/* line 78, ../modules/_buttons.scss */
+/* line 80, ../modules/_buttons.scss */
 .btn--secondary:active {
-  background: #0000ae;
-  border-color: #0000ae;
+  background: #27C9D2;
+  border-color: #27C9D2;
   color: #fff;
 }
 
@@ -1906,4 +1908,98 @@ main {
   border-bottom: 4px solid #1b1b1b;
   color: #FFBD28;
   font-weight: 900;
+}
+
+/**
+ * Modal SCSS Partial
+ */
+/* line 5, ../ui/_modal.scss */
+.modal {
+  background-color: #FFBD28;
+  border-left: 10px solid #1b1b1b;
+  height: 100%;
+  right: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  transition: -webkit-transform 0.75s cubic-bezier(0.625, 0.125, 0.305, 0.875);
+  transition: transform 0.75s cubic-bezier(0.625, 0.125, 0.305, 0.875);
+  z-index: 10;
+}
+@media only screen and (max-width: 46.875em) {
+  /* line 5, ../ui/_modal.scss */
+  .modal {
+    border-left: 0;
+    padding: 0 10px;
+  }
+}
+
+/* line 23, ../ui/_modal.scss */
+.modal--active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  transition: -webkit-transform 0.5s cubic-bezier(0.625, 0.125, 0.305, 0.875);
+  transition: transform 0.5s cubic-bezier(0.625, 0.125, 0.305, 0.875);
+}
+
+/* line 28, ../ui/_modal.scss */
+.modal_close {
+  position: absolute;
+  right: 10%;
+  top: 2em;
+}
+
+/* line 34, ../ui/_modal.scss */
+.modal_signup {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 10em auto 0;
+  max-width: 16em;
+  padding: 1em;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  transition: -webkit-transform 0.5s cubic-bezier(0.75, -0.17, 0.23, 1.19);
+  transition: transform 0.5s cubic-bezier(0.75, -0.17, 0.23, 1.19);
+  width: 100%;
+}
+/* line 44, ../ui/_modal.scss */
+.modal_signup .btn--secondary {
+  margin: 2em 0 0.5em;
+  width: 100%;
+}
+
+/* line 50, ../ui/_modal.scss */
+.modal_signup--active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  transition: -webkit-transform 0.75s cubic-bezier(0.75, -0.17, 0.23, 1.19);
+  transition: transform 0.75s cubic-bezier(0.75, -0.17, 0.23, 1.19);
+}
+
+/* line 57, ../ui/_modal.scss */
+.modal_input {
+  background-color: rgba(207, 217, 225, 0.1);
+  border: 1px solid #CFD9E1;
+  border-radius: 4px;
+  box-shadow: none;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+/* line 68, ../ui/_modal.scss */
+.modal_input a {
+  border: none;
+  color: #1b1b1b;
+}
+/* line 73, ../ui/_modal.scss */
+.modal_input a:hover {
+  color: #FFBD28;
+}
+/* line 76, ../ui/_modal.scss */
+.modal_input a:focus, .modal_input a:active {
+  color: #1b1b1b;
 }

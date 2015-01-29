@@ -44,7 +44,7 @@
 							<a href="#register" data-js="focus-on-form">Register</a>
 						</li>
 						<li>
-							<a href="">Sign In</a>
+							<a href="#" data-js="open-modal">Sign In</a>
 						</li>
 					</ul>
 				</nav>
@@ -115,6 +115,36 @@
 			
 		</main>
 	</section> <!-- .page -->
+
+	<section class="modal">
+		<a href="#" class="modal_close" data-js="close-modal">Close</a>
+		<div class="modal_signup">
+
+			<form class="new_user" id="new_user" action="/signin" accept-charset="UTF-8" method="post">
+				<input name="utf8" type="hidden" value="&#x2713;" />
+				<input type="hidden" name="authenticity_token" value="s8rTjj9y8hm6JmdvASGtC15q98rv4m1dEyerdH6LOuppXrq411TQmuOeO/CFkRPdh8NesbPZxNAQyFq8jdlOmg==" />
+				<div class="form-group">
+					<label for="user_email">Email</label>
+					<input autofocus="autofocus" class="modal_input" placeholder="Your email" type="email" value="" name="user[email]" id="user_email" />
+				</div>
+
+				<div class="form-group">
+					<label for="user_password">Password</label>
+					<input autocomplete="off" class="modal_input" placeholder="********" type="password" name="user[password]" id="user_password" />
+				</div>
+
+				<div class="checkbox">
+					<label for="user_remember_me">
+					<input name="user[remember_me]" type="hidden" value="0" />
+					<input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+					Remember me</label>
+				</div>
+
+				<input type="submit" name="commit" value="Sign in" class="btn--secondary"/>
+			</form>
+
+		</div>
+	</section>
 
 	<footer>
 		<div class="group">

@@ -68,6 +68,8 @@
 ========================================== */
 .btn--secondary {
 	@extend %btn;
+	background: transparent;
+	border: 4px solid $color-btn-secondary;
 	color:$color-btn-secondary-text;
 	&:hover,
 	&:focus {
