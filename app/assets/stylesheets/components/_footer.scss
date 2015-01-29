@@ -1,0 +1,21 @@
+.footer {
+  background-color: $blue;
+  color: $white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  a {
+    color: $white;
+    font-weight: bold;
+    font-size: $font-size-h4;
+  }
+}
+
+.footer-emblem {
+  margin: 0 auto;
+  width: 66px;
+
+  img {
+    width: 66px;
+  }
+}
