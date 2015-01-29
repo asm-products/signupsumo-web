@@ -38,7 +38,7 @@
       <h1 class="visuallyhidden">SignUp Sumo</h1>
         <nav>
           <ul>
-            <li > 
+            <li >
             <!-- data-js="focus-on-form" -->
                 <%= link_to 'Register', new_user_registration_path %>
             </li>
@@ -111,7 +111,7 @@
       <div class="kicker">
         <p>Only <span>$9.99</span> a month for upto <span>100</span> hand picked influential members of your product.</p>
       </div>
-      
+
     </main>
   </section> <!-- .page -->
 
@@ -139,12 +139,6 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
   <script src="../../assets/javascripts/main.min.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
+  <%= render "shared/ga_tracker" %>
 </body>
 </html>
