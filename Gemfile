@@ -35,6 +35,7 @@ end
 
 group :production do
   gem 'bugsnag'
+  gem 'newrelic_rpm'
   gem 'puma'
   gem 'rails_12factor'
 end
