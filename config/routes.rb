@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
   devise_for :users,
-    path: '',
     path_names: {
       sign_in: 'signin',
       sign_out: 'signout',
@@ -9,24 +7,26 @@ Rails.application.routes.draw do
     }
 
   authenticated :user do
-    root :to => "websites#index", as: :authenticated_root
-  end
+    root to: redirect('/dashboard'),
+      as: :authenticated_root
 
-  root 'static#index'
+    resources :dashboard,
+      only: [:index]
+  end
 
   get ':api_key/signupsumo.:format', to: 'scripts#show', api_key: /[0-9a-f]{32}/i, format: :js
 
   get 'scripts/test', to: 'scripts#test'
 
-  get 'styleguide', to: 'styleguide#show'
+  root 'pages#home'
 
-  resources 'websites' do
-    get 'registers', to: 'registers#index', on: :member
-  end
+  resource :styleguide,
+    only: [:show]
 
   scope '/api' do
     scope '/v1' do
-      match '/newsignup' => 'registers#create', via: [:get, :post]
+      # TODO: change this to be more restful
+      match '/newsignup' => 'signups#create', via: [:get, :post]
     end
   end
 
