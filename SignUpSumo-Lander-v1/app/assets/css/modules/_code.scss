@@ -1,0 +1,19 @@
+/**
+ * Code SCSS Partial
+ *
+ * @requires framework/_color.scss
+ */
+
+
+pre {
+	@extend %paragraph;
+	background:$color-black;
+	color:$color-white;
+	display: block;
+	padding:rem(5) rem(10);
+	white-space: pre-line;
+	margin:rem(10) auto;
+	code {
+		font-size:0.8em;
+	}
+}

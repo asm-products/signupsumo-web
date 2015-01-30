@@ -1,0 +1,80 @@
+/**
+ * Color SCSS File
+ */
+
+/**
+ *
+ * All color variables should start with the color- prefix, and should
+ * be descriptive to the color. $color-primary-accent is better than
+ * $color-primary, as it's easy to figure out exactly what the color
+ * is from the variable name. Avoid using specific colours for variables
+ * as these may change significantly during the build and $color-primary-red
+ * may no longer be red, but instead blue.
+ *
+ */
+
+ /* ==|== Colors =================
+ 	Base
+ ========================================== */
+
+$color-white: #fff;
+$color-off-white: #F8FBFF;
+$color-grey: #CFD9E1;
+$color-black: #1b1b1b;
+
+$color-red: #F96447;
+$color-yellow: #FF9C3A;
+$color-green: #73C98D;
+
+$color-sumo-yellow: #FFBD28;
+$color-sumo-blue: #27C9D2;
+
+/* ==|== Colors =================
+	Elements
+========================================== */
+
+$color-background:	$color-white;
+$color-text: 				$color-black;
+
+/* ==|== Colors =================
+   Links
+====================================== */
+
+$color-link-primary: 		$color-white;
+$color-link-primary-hover: 	$color-white;
+$color-link-primary-active: $color-black;
+
+
+/* ==|== Colors =================
+   Buttons
+====================================== */
+
+$color-btn-primary: 							$color-sumo-yellow;
+$color-btn-primary-hover: 						$color-sumo-yellow;
+$color-btn-primary-active: 						$color-sumo-yellow;
+$color-btn-primary-text: 						$color-sumo-yellow;
+$color-btn-primary-text-hover: 					$color-white;
+$color-btn-primary-text-active: 				$color-sumo-yellow;
+
+$color-btn-secondary: 					$color-sumo-blue;
+$color-btn-secondary-hover: 			$color-sumo-blue;
+$color-btn-secondary-active: 			$color-sumo-blue;
+$color-btn-secondary-text: 				$color-sumo-blue;
+$color-btn-secondary-text-hover: 		$color-white;
+$color-btn-secondary-text-active: 		$color-white;
+
+/* ==|== Colors =================
+	Social
+========================================== */
+
+$color-s-twitter: 		#00ACED;
+$color-s-facebook: 		#3B5998;
+$color-s-instagram: 	#3F729B;
+$color-s-gplus: 			#CC3732;
+$color-s-dribbble: 		#EA4C89;
+$color-s-pinterest: 	#CC2127;
+$color-s-tumblr:			#44546B;
+$color-s-vine:				#00B489;
+$color-s-youtube: 		#CD201F;
+$color-s-medium: 			#1A1919;
+$color-s-vimeo:				#1AB7EA;

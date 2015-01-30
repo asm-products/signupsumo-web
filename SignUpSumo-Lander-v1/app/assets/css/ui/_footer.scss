@@ -1,0 +1,57 @@
+/**
+ * Footer SCSS Partial
+ */
+
+footer{
+	background-color: $color-sumo-blue;
+	color: $color-white;
+	padding: 62px 0;
+
+	.social, .legal{
+		display: inline-block;
+		width: 45%;
+		vertical-align: middle;
+
+		@include respond-to(920){
+			display: block;
+			margin: em(20) auto;
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.legal{
+		text-align: right;
+	}
+
+	.social a{
+		margin: 0 em(20) 0 0;
+
+		@include respond-to(920){
+			margin: 0 em(20);
+		}
+	}
+
+	.legal a{
+		margin: 0 0 0 em(20);
+
+		@include respond-to(920){
+			margin: 0 em(20);
+		}
+	}
+}
+
+.embelem{
+	display: inline-block;
+	width: 10%;
+	vertical-align: middle;
+	img{
+		width: 66px;
+	}
+
+	@include respond-to(920){
+		display: block;
+		margin: em(20) auto;
+		text-align: center;
+	}
+}

@@ -1,0 +1,215 @@
+/**
+ * Type SCSS File
+ */
+
+/**
+ * Sets up basic type variables, and includes em & rem functions for easily
+ * converting measurements from pixels to a more cross-browser-friendly
+ * measurement.
+**/
+
+// Our base font size for the site. Usually the most common body copy font size.
+$font-default-size: 20;
+
+// Our base line height.
+$font-default-line-height: 1.5;
+$font-header-line-height: 1.2;
+
+// Our base font stacks.
+$font-stack-regular: 	"museo-sans-rounded",sans-serif;
+$font-stack-header: 	"museo-sans-rounded",sans-serif;
+
+
+/* ==|== Type =================
+	Functions
+========================================== */
+
+/**
+ * Takes a pixel value, and turns it in to the corresponding em value.
+ *
+ * Has an optional second parameter, which alters the base em value.
+ * This can be useful when calculating a measurement on an element with
+ * an altered font size.
+
+ * @param int $target 	The pixel value you're converting.
+ * @param int $content 	The base em value. If no value
+ *						is provided, the $font-default-size value is
+ *						used.
+ */
+
+/**
+ * === EXAMPLE === *
+
+ Both these examples output a padding-left value equivalent to 30px.
+
+ $font-default-size:20;
+
+ .element {
+ 	padding-left:em(30); // => padding-left: 1.5em;
+ }
+
+.element--large {
+	font-size:2rem;
+	padding-left:em(30, 40); // => padding-left: 0.75em;
+}
+*/
+
+@function em($target, $content: $font-default-size) {
+	@if $target == 0 { @return 0 }
+	@return $target / $content + 0em;
+}
+
+/**
+ * Takes a pixel value, and turns it in to the corresponding rem value.
+ *
+ * Has an optional second parameter, which alters the base rem value.
+ * This can be useful when calculating a measurement on an element with
+ * an altered font size.
+
+ * @param int $target 	The pixel value you're converting.
+ * @param int $content 	The base rem value. If no value
+ *											is provided, the $font-default-size value is
+ *											used.
+ */
+
+@function rem($target, $content: $font-default-size) {
+	@if $target == 0 { @return 0 }
+	@return $target / $content + 0rem;
+}
+
+/**
+ * This takes a property and coresponding pixel value(s) and outputs
+ * rems and px fallback code
+
+ * @param val $property 	The CSS property that you're using (e.g. margin)
+ * @param int $values 		The value(s) that you want converted to rems (e.g
+													10, 0, 20)
+ */	
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1); // Required by rempx mixin
+}
+
+@mixin rempx($property, $values...) {
+	$base: $font-default-size;
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+    $remValues: #{$remValues + $value/$base}rem;
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+      $remValues: #{$remValues + " "};
+    }
+  } 
+  
+  #{$property}: $pxValues; 
+  #{$property}: $remValues; 
+}
+
+/* ==|== Type =================
+	Mixins
+========================================== */
+
+/**
+ * Converts a pixel-based font size to a rem font size, with px fallback
+ * for IE <= 8.
+ *
+ * @param int $value	The pixel value you're converting.
+ * @param int $base 	The base rem value. If no value is provided, the
+ * 						$font-default-size value is used.
+**/
+
+@mixin font-size($value, $base: $font-default-size) {
+	$rem: $value/$base;
+	font-size:$rem + rem;
+}
+@mixin font-size-em($value, $base: $font-default-size) {
+	$em: $value/$base;
+	font-size:$value + px;
+	font-size:$em + rem;
+}
+
+@mixin font-sizes($sizes) {
+	// Grab the base font value for setting the rems
+	$base: $font-default-size;
+		// Loop through the Map of the sizes
+    @each $font-break, $font-num in $sizes {
+    	// Set the rem value
+    	$rem: $font-num/$base;
+    	// Check if we're looking for the IE8 fallback
+    	@if $font-break == 0 {
+    		font-size:$font-num + px;
+				font-size:$rem + rem;
+    	}
+    	@else {
+    		// Stick in the min-width breakpoint from each of the maps
+    		@include respond-to-min($font-break) {
+	        font-size:$font-num + px;
+					font-size:$rem + rem;
+	      }
+    	}
+    }
+}
+
+
+/* ==|== Type =================
+	Load CSS based font-families
+========================================== */
+
+/**
+ * Loads in the CSS font-face declarations based on a Sass list of fonts and their styles
+ * Set the number of fonts that you want to load in in $fonts-total
+ * Set the fonts themselves and make sure they're in the assets/fonts folder
+ * Set the styles for the fonts, if Font-number-1 is a regular weight put normal,
+ * if Font-number-2 is an italic weight put italic etc
+**/
+
+@mixin load-fonts($fonts-total,$fonts-to-load,$fonts-to-load-style) {
+
+	@while $fonts-total > 0  {
+		$font-face: nth($fonts-to-load, $fonts-total);
+		$font-style: nth($fonts-to-load-style, $fonts-total);
+		@font-face {
+		  font-family: #{$font-face}; font-style: #{$font-style}; font-weight: normal;
+		  src: url('../fonts/#{$font-face}.eot');
+		  src: url('../fonts/#{$font-face}.eot?') format('eot'),
+		       url('../fonts/#{$font-face}.woff') format('woff'),
+		       url('../fonts/#{$font-face}.ttf')  format('truetype');
+		}
+		$fonts-total: $fonts-total - 1;
+	}
+}
+
+/* ==|== Type =================
+	CSS3 OT font-feature-settings
+========================================== */
+
+/**
+ * Gets the correct CSS3 font-feature-settings to deal with the cross-browser skullduggery
+ * Use the syntax @include font-feature-settings(kern liga clig);
+ * See http://blog.webink.com/opentype-features-css/ for full list of them
+ * But make sure the typeface you're using has the features otherwise they won't show.
+**/
+
+@mixin font-feature-settings($feature-list: false) {
+	@if $feature-list
+	{
+		$standard: ();
+		$old-moz: ();
+		@each $feature in $feature-list
+		{
+			$standard: append( $standard, '#{$feature}' 1, comma );
+			$old-moz: append( $old-moz, '#{$feature}=1', comma );
+		}
+		-moz-font-feature-settings: $old-moz;
+		-moz-font-feature-settings: $standard;
+		-ms-font-feature-settings: $standard;
+		-o-font-feature-settings: $standard;
+		-webkit-font-feature-settings: $standard;
+		font-feature-settings: $standard;
+	}
+}

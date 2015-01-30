@@ -1,0 +1,89 @@
+/**
+ * Modules fall back for unsupported browsers
+ *
+ * @requires framework/_type.scss, framework/_variables.scss
+ */
+
+
+/* ==|== Buttons =================
+	Fall-back for modules/_buttons.scss
+
+	* @requires framework/_type.scss
+========================================== */
+
+.btn {
+	padding:em(15) em(20);
+}
+
+/* ==|== Code =================
+	Fall-back for modules/_code.scss
+========================================== */
+
+pre {
+	@include font-size(20);
+	padding:em(5) em(10);
+}
+
+/* ==|== Grid =================
+	Fall-back for modules/_grid.scss
+========================================== */
+
+.grid {
+  margin: 0 em(-($grid-gutter/2));
+}
+.grid__unit {
+	padding: 0 em($grid-gutter/2);
+	.module-name & {
+	  width: (100%/ 4);
+	}
+	.module-name-2 & {
+	  width: (100%/ 6);
+	}
+}
+
+.group {
+	max-width:em($layout-max-width);
+}
+
+/* ==|== Typography =================
+	Fall-back for modules/_typography.scss
+========================================== */
+
+h1 {
+	@include font-size-em(60);
+	margin:em(24,60) 0 em(12,60);
+}
+h2 {
+	@include font-size-em(56);
+	margin:em(24,52) 0 em(12,52);
+}
+
+h3 {
+	@include font-size-em(42);
+	margin:em(16,42) 0 em(8,42);
+}
+
+h4 {
+	@include font-size-em(36);
+	margin:em(16,36) 0 em(8,36);
+}
+
+h5 {
+	@include font-size-em(32);
+	margin:em(12,32) 0 em(6,32);
+}
+
+h6 {
+	@include font-size-em(24);
+	margin:em(12,24) 0 em(6,24);
+}
+
+p {
+	@include font-size-em(20);
+	margin:0 auto em(10);
+}
+
+ul,
+ol {
+	@include font-size(20);
+}

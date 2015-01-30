@@ -1,0 +1,80 @@
+/**
+ * Modal SCSS Partial
+ */
+
+.modal{
+	background-color: $color-sumo-yellow;
+	border-left: 10px solid $color-black;
+	height: 100%;
+	right: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	transform: translateX(100%);
+	transition:transform .75s cubic-bezier(#{$bezier-nice});
+	z-index: 10;
+
+	@include respond-to($bp-small){
+		border-left: 0;
+		padding: 0 10px;
+	}
+}
+
+.modal--active{
+	transform: translateX(0);
+	transition:transform .5s cubic-bezier(#{$bezier-nice});
+}
+
+.modal_close{
+	position: absolute;
+	right: 10%;
+	top: em(40);
+}
+
+.modal_signup{
+	background-color: $color-white;
+	border-radius: 8px;
+	margin: em(200) auto 0;
+	max-width: em(320);
+	padding: em(20);
+	transform: scale(0);
+	transition:transform .5s cubic-bezier(#{$bezier-bounce});
+	width: 100%;
+
+	.btn--secondary{
+		margin: em(40) 0 em(10);
+		width: 100%;
+	}
+}
+
+.modal_signup--active{
+	transform: scale(1);
+	transition:transform .75s cubic-bezier(#{$bezier-bounce});
+}
+
+
+
+.modal_input{
+		background-color: rgba( $color-grey, 0.1 );
+		border: 1px solid $color-grey;
+		border-radius: 4px;
+		box-shadow: none;
+		margin: em(10) 0;
+		padding: em(10) em(20);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+
+		a{
+			border: none;
+			color: $color-black;
+			
+
+			&:hover{
+				color: $color-sumo-yellow;
+			}
+			&:focus, &:active{
+				color: $color-black;
+			}
+		}
+	}

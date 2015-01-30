@@ -1,0 +1,87 @@
+/**
+ * Bullet Points SCSS Partial
+ */
+
+main{
+	padding: em(80) 0;
+}
+
+.bullet-point{
+	margin-top: em(80);
+	.number, .point, .subscribe__form, .subscribe__link, .btn{
+		display: inline-block;
+		vertical-align: middle;
+		@include respond-to(920){
+			display: block;
+			margin: em(20) auto;
+			text-align: center;
+		}
+	}
+
+	.action, .subscribe__link{
+		background-color: rgba( $color-grey, 0.1 );
+		border: 1px solid $color-grey;
+		border-radius: 4px;
+		box-shadow: none;
+		padding: em(10) em(20);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 100%;
+
+		a{
+			border: none;
+			color: $color-black;
+			
+
+			&:hover{
+				color: $color-sumo-yellow;
+			}
+			&:focus, &:active{
+				color: $color-black;
+			}
+		}
+	}
+
+	.point, .subscribe__form, .subscribe__link, .btn{
+		margin-left: 40px;
+		width: calc(50% - 90px);
+
+		@include respond-to(920){
+			width: 100%;
+		}
+	}
+
+	.btn{
+		font-weight: 700;
+	}
+
+	.number{
+		@include font-size(42);
+		border: 10px solid $color-grey;
+		border-radius: 40px;
+		font-weight: 700;
+		height: 80px;
+		//padding-top: 15px;
+		text-align: center;
+		width: 80px;
+	}
+
+}
+
+.kicker{
+	margin: em(100) auto 0;
+	max-width: em(700);
+	text-align: center;
+
+	p{
+		@include font-size(32);
+		font-weight: 700;
+	}
+
+	span{
+		border-bottom: 4px solid $color-black;
+		color: $color-sumo-yellow;
+		font-weight: 900;
+	}
+
+}

@@ -1,0 +1,85 @@
+/**
+ * Button SCSS Partial
+ *
+ * @requires framework/_type.scss, framework/_color.scss
+ */
+
+/* ==|== Buttons =================
+	Containers
+========================================== */
+
+%btns {
+	& > :first-of-type {
+		margin-left:0;
+	}
+	& > :last-of-type {
+		margin-right:0;
+	}
+}
+.btns {
+	@extend %btns;
+}
+.btns--center {
+	@extend %btns;
+	text-align: center;
+}
+
+/* ==|== Buttons =================
+	Primary
+========================================== */
+%btn {
+	border:rem(2) solid $color-btn-primary;
+	border-radius: 1000px;
+	display: inline-block;
+	padding:rem(15) rem(20);
+	transition:all .25s cubic-bezier(#{$bezier-nice});
+	margin:0 rem(10) rem(10);
+	&:hover,
+	&:focus {
+		// Any attributes that all buttons will take
+		// i.e. transform:scale(0.95);
+	}
+	&:active {
+		// Any attributes that all buttons will take
+		// i.e. transform:scale(0.95);
+	}
+}
+.btn {
+	@extend %btn;
+	background: transparent;
+	border: 4px solid $color-btn-primary;
+	color:$color-btn-primary-text;	
+	text-align: center;
+	&:hover {
+		background:$color-btn-primary-hover;
+		border-color:$color-btn-primary-hover;
+		color:$color-btn-primary-text-hover;
+	}
+	&:active,
+	&:focus {
+		background: transparent;
+		border-color:$color-btn-primary-active;
+		color:$color-btn-primary-text-active;
+	}
+}
+
+/* ==|== Buttons =================
+	Secondary
+========================================== */
+.btn--secondary {
+	@extend %btn;
+	background: transparent;
+	border: 4px solid $color-btn-secondary;
+	color:$color-btn-secondary-text;
+	&:hover,
+	&:focus {
+		background:$color-btn-secondary-hover;
+		border-color:$color-btn-secondary-hover;
+		color:$color-btn-secondary-text-hover;
+	}
+	&:active {
+		background:$color-btn-secondary-active;
+		border-color:$color-btn-secondary-active;
+		color:$color-btn-secondary-text-active;
+	}
+}

@@ -1,0 +1,38 @@
+/**
+ * Blocks SCSS Partial
+ */
+
+.block_center{
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.block_half{
+	display: inline-block;
+	width: 50%;
+	vertical-align: middle;
+	@include respond-to(920){
+		display: block;
+		width: 100%;
+	}
+}
+
+.block_half-left{
+	@extend .block_half;
+	padding-right: em(20);
+
+	@include respond-to(920){
+		padding-right: 0;
+	}
+}
+
+.block_half-right{
+	@extend .block_half;
+	padding-left: em(20);
+
+	@include respond-to(920){
+		padding-left: 0;
+	}
+}

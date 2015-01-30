@@ -1,0 +1,88 @@
+/**
+ * Typography SCSS Partial
+ *
+ * @requires framework/_type.scss, framework/_variables.scss
+ */
+
+/* ==|== Typography =================
+	Load Typefaces from type.scss
+========================================== */
+
+/**
+ * Loads in the CSS font-face declarations based on a Sass list of fonts and their styles
+ * Set the number of fonts that you want to load in in $fonts-total
+ * Set the fonts themselves and make sure they're in the assets/fonts folder
+ * Set the styles for the fonts, if Font-number-1 is a regular weight put normal,
+ * if Font-number-2 is an italic weight put italic etc
+**/
+
+// Ensure that $fonts-total is set to 0 if no local fonts are required
+$fonts-total: 0;
+$fonts-to-load: Font-number-1, Font-number-2;
+$fonts-to-load-style: normal, italic;
+@include load-fonts($fonts-total,$fonts-to-load,$fonts-to-load-style);
+
+
+/* ==|== Typography =================
+	1. Headings
+========================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	// @extend %hyphenated;
+	font-family:$font-stack-header; // Exclude if entire site based in one font-family
+	font-weight:normal;
+	line-height:$font-header-line-height;
+}
+
+h1 {
+	@include font-sizes((0: 48, $bp-tiny: 54, $bp-small: 60));
+	font-weight: 900;
+	margin:rem(24) 0 rem(12);
+}
+
+h2 {
+	@include font-sizes((0: 40, $bp-tiny: 46, $bp-small: 52));
+	font-weight: 700;
+	margin:rem(24) 0 rem(12);
+}
+
+h3 {
+	@include font-sizes((0: 32, $bp-tiny: 38, $bp-small: 42));
+	font-weight: 700;
+	margin:rem(16) 0 rem(8);
+}
+
+h4 {
+	@include font-sizes((0: 26, $bp-tiny: 32, $bp-small: 36));
+	font-weight: 700;
+	margin:rem(16) 0 rem(8);
+}
+
+h5 {
+	@include font-sizes((0: 20, $bp-tiny: 26, $bp-small: 32));
+	font-weight: 700;
+	margin:rem(12) 0 rem(6);
+}
+
+h6 {
+	@include font-sizes((0: 18, $bp-tiny: 21, $bp-small: 24));
+	font-weight: 700;
+	margin:rem(12) 0 rem(6);
+}
+
+/* ==|== Typography =================
+	Paragraphs
+========================================== */
+
+%paragraph {
+	@include font-sizes((0: 16, $bp-tiny: 18, $bp-small: 20));
+	font-weight: 300;
+	margin:0 auto rem(10);
+}
+p {
+	@extend %paragraph;
+}
+
+.indented {
+	text-indent:2em;
+}

@@ -1,0 +1,75 @@
+/**
+ * List SCSS Partial
+ */
+
+/* ==|== Lists =================
+	1. Default
+========================================== */
+
+ul,
+ol {
+	@extend %paragraph;
+	list-style: circle outside none;
+	margin:1em 0;
+	padding:0 0 0 1.5em;
+	> li > ul {
+		list-style:disc outside none;
+		margin:0;
+	}
+	> li > ol {
+		list-style: lower-greek outside none;
+		margin:0;
+	}
+}
+ol {
+	list-style: lower-roman outside none;
+}
+
+/* ==|== Lists =================
+	2. Inline
+========================================== */
+
+.list--inline {
+	list-style:none;
+	margin:0;
+	padding:0;
+
+	li {
+		display: inline-block;
+	}
+}
+
+.list--inline--dot,
+.list--inline--pipe,
+.list--inline--slash {
+	@extend .list--inline;
+}
+
+.list--inline--dot {
+	li + li:before {
+		content:"• ";
+	}
+}
+.list--inline--pipe {
+	li + li:before {
+		content:"| ";
+	}
+}
+.list--inline--slash {
+	li + li:before {
+		content: "/ ";
+	}
+}
+
+/* ==|== Lists =================
+	3. Basic
+========================================== */
+
+.list--basic {
+	list-style:none;
+	padding:0;
+
+	ul {
+		padding-left: .5em;
+	}
+}
