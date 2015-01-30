@@ -10,7 +10,6 @@ gem 'clearbit-leadscore'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'jquery-rails'
-gem 'meta-tags'
 gem 'pg'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0.1'
@@ -20,9 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'foreman'
+  gem 'quiet_assets'
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem "therubyracer"
+  gem 'therubyracer'
 end
 
 group :development, :test do
@@ -32,7 +32,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'bugsnag'
   gem 'puma'
   gem 'rails_12factor'
-  gem 'bugsnag'
 end

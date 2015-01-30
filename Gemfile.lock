@@ -97,8 +97,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    meta-tags (2.0.0)
-      actionpack (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
@@ -115,6 +113,8 @@ GEM
       slop (~> 3.4)
     puma (2.11.0)
       rack (>= 1.1, < 2.0)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -229,10 +229,10 @@ DEPENDENCIES
   fabrication
   foreman
   jquery-rails
-  meta-tags
   pg
   pry
   puma
+  quiet_assets
   rails (= 4.2.0)
   rails_12factor
   rspec-rails
