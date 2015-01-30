@@ -4,7 +4,7 @@ class RegistersController < ApplicationController
 
   before_action :verify_website, :set_profile, only: [:create]
   before_action :set_website, only: [:index]
-  
+
   def create
     if @website
       if @website.registers.find_by_profile_id(@profile)
@@ -18,7 +18,7 @@ class RegistersController < ApplicationController
     end
 
     render json: {response: response}
-    return 
+    return
   end
 
   def index
