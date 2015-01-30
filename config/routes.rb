@@ -14,9 +14,11 @@ Rails.application.routes.draw do
       only: [:index]
   end
 
-  get ':api_key/signupsumo.:format', to: 'scripts#show', api_key: /[0-9a-f]{32}/i, format: :js
-
-  get 'scripts/test', to: 'scripts#test'
+  # TODO: move to raw asset and put on CDN
+  get '/:api_key/signupsumo.:format',
+    to: 'scripts#show',
+    api_key: /[0-9a-f]{32}/i,
+    format: :js
 
   root 'pages#home'
 
@@ -26,8 +28,13 @@ Rails.application.routes.draw do
   scope '/api' do
     scope '/v1' do
       # TODO: change this to be more restful
-      match '/newsignup' => 'signups#create', via: [:get, :post]
+      match '/signups' => 'signups#create', via: [:get, :post]
     end
   end
 
+  # TODO: move to pages controller
+  if Rails.env.development?
+    get 'scripts/test',
+      to: 'scripts#test'
+  end
 end

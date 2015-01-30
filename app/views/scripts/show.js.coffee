@@ -1,7 +1,7 @@
 class @SignupSumo
     DEFAULT_BASE_ENDPOINT = "http://signupsumo.com/api/v1/"
 
-    DEFAULT_NOTIFIER_ENDPOINT = DEFAULT_BASE_ENDPOINT + "newsignup"
+    DEFAULT_NOTIFIER_ENDPOINT = DEFAULT_BASE_ENDPOINT + "signups"
 
     NOTIFIER_VERSION = "0.9.0"
 
@@ -49,10 +49,7 @@ class @SignupSumo
           email: email
 
     validateEmailFormat: (email) ->
-      if email.match(EMAIL_REGEX)
-        true
-      else
-        false
+      !!email.match(EMAIL_REGEX)
 
 loadCompleted = ->
   new SignupSumo

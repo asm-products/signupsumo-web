@@ -1,19 +1,14 @@
 class SignupsController < ApplicationController
-  # TODO: Rework this so it just kicks off a background job
   def create
-    if @website
-      if @website.registers.find_by_profile_id(@profile)
-        response = "Already Registered"
-      else
-        @register = @website.registers.create(is_influential: @profile.is_influential, profile: @profile)
-        response = "Registered Successfully"
-      end
+    user = User.find_by(authentication_token: params[:token])
+
+    ChecksInfluence.perform_later(user, params[:email]) if user
+
+    if user
+      render json: { response: 'Submitted successfully' }
     else
-      response = "BAD REQUEST"
+      # TODO: return more specific errors for the user here
+      render json: { response: 'Bad request' }
     end
-
-    render json: {response: response}
-
-    return 
   end
 end
