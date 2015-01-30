@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users,
     path_names: {
@@ -26,8 +28,14 @@ Rails.application.routes.draw do
     end
   end
 
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   if Rails.env.development?
     get '/test',
       to: 'pages#test'
+
+    mount Sidekiq::Web => '/sidekiq'
   end
 end

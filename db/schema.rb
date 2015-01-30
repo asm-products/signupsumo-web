@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130212122) do
+ActiveRecord::Schema.define(version: 20150130224941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20150130212122) do
   add_index "signups", ["user_id", "email"], name: "index_signups_on_user_id_and_email", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -45,7 +45,8 @@ ActiveRecord::Schema.define(version: 20150130212122) do
     t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "authentication_token",                            null: false
+    t.string   "authentication_token",                               null: false
+    t.boolean  "admin",                              default: false, null: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree

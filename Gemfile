@@ -12,6 +12,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'non-stupid-digest-assets'
 gem 'pg'
+gem 'puma'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0.1'
@@ -36,6 +37,5 @@ end
 group :production do
   gem 'bugsnag'
   gem 'newrelic_rpm'
-  gem 'puma'
   gem 'rails_12factor'
 end
