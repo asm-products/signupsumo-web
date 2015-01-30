@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'scripts/test', to: 'scripts#test'
 
+  get 'styleguide', to: 'styleguide#show'
+
   resources 'websites' do
     get 'registers', to: 'registers#index', on: :member
   end
