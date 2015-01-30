@@ -14,12 +14,6 @@ Rails.application.routes.draw do
       only: [:index]
   end
 
-  # TODO: move to raw asset and put on CDN
-  get '/:api_key/signupsumo.:format',
-    to: 'scripts#show',
-    api_key: /[0-9a-f]{32}/i,
-    format: :js
-
   root 'pages#home'
 
   resource :styleguide,
@@ -32,9 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
-  # TODO: move to pages controller
   if Rails.env.development?
-    get 'scripts/test',
-      to: 'scripts#test'
+    get '/test',
+      to: 'pages#test'
   end
 end
