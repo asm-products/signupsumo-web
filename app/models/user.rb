@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
     :validatable
 
-  has_many :websites,
+  has_many :signups,
     dependent: :delete_all
 
   validates :email,

@@ -1,14 +1,22 @@
 class ChecksInfluenceJob < ActiveJob::Base
-  MIN_INFLUENCER_SCORE = 0.75
+  THRESHOLD = 0.7
 
   queue_as :default
 
   def perform(user, email)
+    return if !user || user.signups.where(email: email).exists?
+
     signup = Clearbit::LeadScore.lookup(email)
-    return unless signup && signup.baller?
+    score = signup && signup.score || 0
+    influential = score > THRESHOLD
 
-    InfluencerMailer.influencer_email(user, signup).deliver
+    Signup.create!(
+      user: user,
+      email: email,
+      influential: influential,
+      data: signup
+    )
 
-    # Record infleunce in db or at least a record of the email
+    InfluencerMailer.influencer_email(user, signup).deliver_now if influential
   end
 end
