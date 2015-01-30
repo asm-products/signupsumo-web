@@ -21,5 +21,14 @@ module SignupsumoWeb
     # config.i18n.default_locale = :de
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.middleware.insert_before 0, 'Rack::Cors' do
+      allow do
+        origins '*'
+        resource '/api/v1/signups',
+          headers: :any,
+          methods: [:get, :post, :options]
+      end
+    end
   end
 end
