@@ -34,4 +34,5 @@ end
 group :production do
   gem 'puma'
   gem 'rails_12factor'
+  gem 'bugsnag'
 end
