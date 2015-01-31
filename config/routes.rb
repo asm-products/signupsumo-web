@@ -29,13 +29,15 @@ Rails.application.routes.draw do
   end
 
   authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+    mount Sidekiq::Web => '/sidekiq',
+      as: :production_sidekiq
   end
 
   if Rails.env.development?
     get '/test',
       to: 'pages#test'
 
-    mount Sidekiq::Web => '/sidekiq'
+    mount Sidekiq::Web => '/sidekiq',
+      as: :development_sidekiq
   end
 end

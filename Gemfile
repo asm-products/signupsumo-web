@@ -10,6 +10,7 @@ gem 'clearbit-leadscore'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'jquery-rails'
+gem 'newrelic_rpm'
 gem 'non-stupid-digest-assets'
 gem 'pg'
 gem 'puma'
@@ -17,6 +18,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0.1'
 gem 'sidekiq'
+gem 'sinatra'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
@@ -36,6 +38,5 @@ end
 
 group :production do
   gem 'bugsnag'
-  gem 'newrelic_rpm'
   gem 'rails_12factor'
 end
