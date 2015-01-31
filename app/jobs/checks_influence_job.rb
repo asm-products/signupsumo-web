@@ -6,11 +6,11 @@ class ChecksInfluenceJob < ActiveJob::Base
   def perform(user, email)
     return if !user || user.signups.where(email: email).exists?
 
-    signup = Clearbit::LeadScore.lookup(email)
-    score = signup && signup.score || 0
-    influential = score > THRESHOLD
+    data = Clearbit::LeadScore.lookup(email)
+    score = data && data.score || 0
+    influential = data > THRESHOLD
 
-    Signup.create!(
+    signup = Signup.create!(
       user: user,
       email: email,
       influential: influential,
