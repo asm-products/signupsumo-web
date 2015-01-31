@@ -8,13 +8,13 @@ class ChecksInfluenceJob < ActiveJob::Base
 
     data = Clearbit::LeadScore.lookup(email)
     score = data && data.score || 0
-    influential = data > THRESHOLD
+    influential = score > THRESHOLD
 
     signup = Signup.create!(
       user: user,
       email: email,
       influential: influential,
-      data: signup
+      data: data
     )
 
     InfluencerMailer.influencer_email(user, signup).deliver_now if influential

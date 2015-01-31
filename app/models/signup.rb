@@ -9,8 +9,7 @@ class Signup < ActiveRecord::Base
     presence: true
 
   def name
-    person.fetch(:name, {}).
-      fetch[:full_name]
+    person.fetch(:name, {})[:full_name]
   end
 
   def details
@@ -34,8 +33,7 @@ class Signup < ActiveRecord::Base
   end
 
   def followers
-    person.fetch(:twitter, {}).
-      fetch[:followers]
+    person.fetch(:twitter, {})[:followers]
   end
 
   def employment
