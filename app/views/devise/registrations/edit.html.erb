@@ -1,39 +1,53 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render 'shared/navbar' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="container">
+  <div class="row" style="padding: 60px 0">
+    <div class="col-xs-12 col-sm-8">
+      <h2>Edit your account</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <p>People change, but you know some people never do. You know when people change, they gain a piece but they lose one too. <a href="http://open.spotify.com/track/41X9To0bQ4fpoSRri4NHiI">&#9835;</a></p>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, class: 'form-control input-lg' %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <hr>
+
+        <p class="text-muted" style="margin-top: 36px">You can leave us empty to keep your same ol' password.</p>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control input-lg' %>
+        </div>
+
+        <%= f.submit "Update", class: 'btn btn-primary btn-lg' %>
+      <% end %>
+
+      <hr style="margin: 60px 0">
+
+      <h3>Cancel your account</h3>
+
+      <p>I'll be bummed out, but I understand that all good things have to come to an end.</p>
+
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Just double-checking. Totally, 100% sure?" }, class: 'btn btn-default', method: :delete %>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
