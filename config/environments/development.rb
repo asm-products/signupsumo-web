@@ -36,4 +36,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.delivery_method = :sendmail
+
+  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
 end

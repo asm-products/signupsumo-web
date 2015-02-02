@@ -12,16 +12,17 @@ class Signup < ActiveRecord::Base
     person.fetch(:name, {})[:full_name]
   end
 
+  def first_name
+    person.fetch(:name, {})[:given_name]
+  end
+
   def details
     title || bio
   end
 
   def title
-    return unless employment &&
-      employment[:name] &&
-      employment[:title]
-
-    "#{employment[:title]} at #{employement[:name]}"
+    return unless employment[:name].present?
+    employment.values_at(:title, :name).compact.join(' at ')
   end
 
   def bio
@@ -32,8 +33,31 @@ class Signup < ActiveRecord::Base
     person[:location]
   end
 
-  def followers
-    person.fetch(:twitter, {})[:followers]
+  def social
+    handles = [:facebook, :github, :twitter, :linkedin, :googleplus, :angellist, :klout, :foursquare, :aboutme].map do |name|
+      handle = person.fetch(name, {})[:handle]
+      [name, handle] if handle.present?
+    end.compact.to_h
+
+    handles.map do |name, handle|
+      url = case name
+      when :facebook   then "https://facebook.com/#{handle}"
+      when :github     then "https://github.com/#{handle}"
+      when :twitter    then "https://twitter.com/#{handle}"
+      when :linkedin   then "https://www.linkedin.com/#{handle}"
+      when :googleplus then "https://plus.google.com/#{handle}"
+      when :angellist  then "https://angel.co/#{handle}"
+      when :klout      then "https://klout.com/#{handle}"
+      when :foursquare then "https://foursquare.com/#{handle}"
+      when :aboutme    then "https://about.me/#{handle}"
+      end
+
+      [name, url] if url
+    end.compact.to_h
+  end
+
+  def avatar
+    person[:avatar]
   end
 
   def employment
@@ -53,6 +77,6 @@ class Signup < ActiveRecord::Base
   end
 
   def data
-    super.symbolize_keys
+    super && super.deep_symbolize_keys
   end
 end

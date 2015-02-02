@@ -1,11 +1,57 @@
-SignupSumo
-
-A new influencer is using your product.
-
-<%= @signup.name %>
-
-<%= @signup.details %>
-
-<%= @signup.location %>
-
-Twitter followers: <%= @signup.followers %>
+<table class="mailer-card">
+  <tbody>
+    <tr>
+      <td class="header">
+        <%= link_to 'https://signupsumo.com' do %>
+          <%= image_tag "icons/sumo-embelem-yellow@2x.png", size: '120' %>
+        <% end %>
+        <br>
+        <br>
+        <h2>SignupSumo</h2><br>
+        <p class="lead">A new influencer just signed up!</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag @signup.avatar, height: '140' %><br>
+              </td>
+              <td>
+                <h3><%= @signup.name %></h3>
+                <p class="text-muted"><%= @signup.details %></p>
+                <% @signup.social.each do |name, url| %>
+                  <span style="margin-right: 10px">
+                    <%= link_to name.capitalize, url %>
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <%= mail_to @signup.email, "Send #{@signup.first_name} an email", class: 'btn btn-primary' %>
+      </td>
+    </tr>
+    <tr>
+      <td class="footer">
+        <table style="color: inherit">
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag "icons/sumo-embelem-yellow@2x.png", size: '80' %>
+              </td>
+              <td>
+                SignupSumo is the best way to get notified when influential users sign up.<br>
+                <br>
+                Not diggin' these emails? Change your notification settings.<br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
