@@ -11,3 +11,13 @@ h5,
 h6 {
   text-transform: uppercase;
 }
+
+hr {
+  border-top: 2px solid #e8e8e8;
+}
+
+code {
+  background-color: transparent;
+  color: $black;
+  font-size: 18px;
+}
