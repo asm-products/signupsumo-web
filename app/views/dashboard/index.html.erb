@@ -2,18 +2,14 @@
 
 <div class="container">
   <div class="row" style="padding: 60px 0">
-    <div class="col-xs-12 col-sm-5">
-      <h2>Let's get you setup</h2>
-      <%= image_tag 'https://d1015h9unskp4y.cloudfront.net/attachments/a9214740-31f1-414a-8b60-5eb1cf1ec7e0/Screen%20Shot%202015-02-02%20at%2010.54.36%20AM.png', class: 'img-responsive', style: 'margin-top: 24px' %>
-    </div>
+    <!-- Include video on how to install the script -->
+    <div class="col-xs-12">
+      <h2>Let's get setup <small>Just add this to your signup page</small></h2>
+      <p>Grab your personalized script tag below and include it anywhere on
+      your signup page. We'll keep an eye on your signups and shoot you an
+      email when that special someone signs up.</p>
 
-    <div class="col-xs-12 col-sm-7">
-      <p class="lead" style="margin-top: 24px">Include our script on your signup page</p>
-      <p>We've made things pretty easy. Just grab your personalized script tag
-      below and include it anywhere on your signup page. We'll keep an eye on
-      your signups and shoot you an email when that special someone signs up.</p>
-
-      <div class="well">
+      <div class="well" style="margin-top: 36px">
         <div class="well-body">
           <code>
             <%= %{<script} %><br>
@@ -23,58 +19,73 @@
           </code>
         </div>
       </div>
+
+      <%= link_to 'Learn more about how this works', docs_path %>
     </div>
   </div>
 </div>
 
-<hr>
+<% if current_user.created_at > 1.day.ago %>
+  <div class="callout">
+    <div class="container">
+      <div class="row" style="padding: 60px 0">
+        <div class="col-xs-7">
+          <h2>
+            Free stuff!
+            <small>Only <%= pluralize([(((current_user.created_at + 1.day) - Time.now) / 1.hour).to_i, 1].max, 'hour') %> left.</small>
+          </h2>
+          <p>Install our script and start checking signups within your first 24
+          hours of signing up and we'll give you a <strong>whole month free</strong>. Sweet, right? Need help
+          getting setup? Send us an email.</p>
+        </div>
 
-<div class="container">
-  <div class="row" style="padding: 40px 0">
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <h3>Activity</h3>
-      <p class="lead">Still waiting on that first signup. Keep checking here</p> 
-
-      <div style="height: 400px; width: 100%; border: 1px solid gray">
-        [graph or something]
+        <div class="col-xs-4 col-xs-offset-1">
+          <div class="text-center" style="margin-top: 84px">
+            <a href="#" class="btn btn-default btn-lg btn-block">
+              Email support
+            </a>
+            <p style="margin-top: 18px">or <%= link_to 'Read the docs', docs_path %></p>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+<% else %>
+  <hr>
+<% end %>
 
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <h3>When the time is right</h3>
-      <p class="lead">Upgrade!</p> 
 
-      <h1 style="font-size: 140px">$9/mo</h1>
+<div class="container">
+  <div class="row" style="padding: 60px 0">
+    <div class="col-xs-12 col-sm-7">
+      <h2>When the time is right...</h2>
+      <p>Upgrade your account so you don't miss your chance to
+      connect with any high-profile signups. <strong>You can cancel anytime</strong> and we'll never charge you a penny until
+      you run through your 10 free notifications.</p> 
+    </div>
+    <div class="xs-hidden col-sm-4 col-sm-offset-1">
+      <div style="font-weight: 800; color: #ffac27">
+        <span style="font-size: 120px">
+          $9<span style="font-size: 50px; vertical-align: 60%; margin-left: 10px">MO</span>
+        </span>
+        <a href="#" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px">
+          Upgrade!
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-<hr>
+<div class="callout callout-dark">
+  <div class="container">
+    <div class="row" style="padding: 60px 0">
+      <h2>Tips on reaching out</h2>
+      <p>Take a few simple steps to engage with your influential users and help
+      promote your product through the people that care about it most. Because,
+      you want to geninuely connect with your users, get to know them a bit,
+      instead of giving off that weird used car salesman vibe.</p>
 
-<div class="container">
-  <div class="row" style="padding: 40px 0">
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <h3>Your account</h3>
-      <p>People change, but you know some people never do. You know when people change, they gain a piece but they lose one too. &#9835;</p> 
-
-      <%= form_for(current_user, url: edit_user_registration_path) do |f| %>
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, class: 'form-control input-lg', placeholder: 'Your email' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control input-lg', placeholder: 'Mash the keyboard' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg', placeholder: 'Just to double check' %>
-        </div>
-
-        <%= f.submit "Save", class: 'btn btn-primary btn-lg', style: 'margin-top: 24px' %>
-      <% end %>
+      <a href="#" class="btn btn-dark btn-lg" style="margin-top: 24px">Read our "Influence 101"</a>
     </div>
   </div>
 </div>

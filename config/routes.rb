@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       only: [:index]
   end
 
+  get '/docs' => 'pages#docs', as: :docs
+
   root 'pages#home'
 
   resource :styleguide,

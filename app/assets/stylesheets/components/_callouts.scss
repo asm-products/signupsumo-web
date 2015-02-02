@@ -1,5 +1,22 @@
 .callout {
-  background-color: $orange-dark;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  background-color: $blue;
+  color: $white;
+
+  h2 small {
+    color: darken($blue, 18%);
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
+  p a {
+    color: white;
+
+    &:hover {
+      color: darken(white, 10%);
+    }
+  }
+}
+
+.callout-dark {
+  background-color: $gray;
 }

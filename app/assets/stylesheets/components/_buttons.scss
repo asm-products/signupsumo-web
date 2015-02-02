@@ -4,6 +4,16 @@
   font-weight: bold;
 }
 
+.btn-dark {
+  background-color: $gray;
+  border: 1px solid $gray-lighter;
+  color: $white;
+
+  &:hover {
+    background-color: darken($gray, 5%);
+  }
+}
+
 button.close {
-    opacity: 1;
+  opacity: 1;
 }
