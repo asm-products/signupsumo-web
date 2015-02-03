@@ -1,3 +1,5 @@
+#= require superagent
+
 class @SignupSumo
   DEFAULT_BASE_ENDPOINT = "http://signupsumo.com/api/v1/"
 
@@ -40,13 +42,14 @@ class @SignupSumo
 
   submitEmail: (email) ->
     endpoint = DEFAULT_NOTIFIER_ENDPOINT
-    $.ajax
-      url: endpoint
-      type: 'POST'
-      data:
-        token: @token
-        url: window.location.origin
-        email: email
+    data =
+      token: @token
+      url: window.location.origin
+      email: email
+
+    superagent
+      .post(endpoint)
+      .send(data)
 
   validateEmailFormat: (email) ->
     !!email.match(EMAIL_REGEX)
