@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<% if current_user.signups.exists? && false %>
+<% if current_user.signups.exists? %>
   <%= render 'dashboard/existing_user' %>
 <% else %>
   <%= render 'dashboard/new_user' %>
