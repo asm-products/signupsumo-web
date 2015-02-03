@@ -37,43 +37,43 @@
         </div>
       <% end %>
     </div>
-  </div>
 
-  <table class="table table-fancy">
-    <thead>
-      <tr>
-        <td>
-          Influencer
-        </td>
-        <td>
-          Email
-        </td>
-        <td>
-          Most engaged
-        </td>
-        <td>
-          Influence
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @influencers.each do |signup| %>
+    <table class="table table-fancy">
+      <thead>
         <tr>
-          <td class="clearfix">
-            <div class="table-avatar pull-left">
-              <%= image_tag signup.avatar %>
-            </div>
-            <div class="pull-left" style="margin-left: 12px; line-height: 42px">
-              <%= signup.name %>
-            </div>
+          <td>
+            Influencer
           </td>
-          <td><%= mail_to signup.email, signup.email %></td>
-          <td><%= link_to signup.social.first.first.capitalize, signup.social.first.last %></td>
-          <td><%= signup.score * 100 %></td>
+          <td>
+            Email
+          </td>
+          <td>
+            Most engaged
+          </td>
+          <td>
+            Influence
+          </td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @influencers.each do |signup| %>
+          <tr>
+            <td class="clearfix">
+              <div class="table-avatar pull-left">
+                <%= image_tag signup.avatar %>
+              </div>
+              <div class="pull-left" style="margin-left: 12px; line-height: 42px">
+                <%= signup.name %>
+              </div>
+            </td>
+            <td><%= mail_to signup.email, signup.email %></td>
+            <td><%= link_to signup.social.first.first.capitalize, signup.social.first.last %></td>
+            <td><%= signup.score * 100 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <hr>
