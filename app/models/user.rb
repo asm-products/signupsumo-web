@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
     :validatable
 
   has_many :signups,
-    dependent: :delete_all
+    dependent: :destroy
+
+  has_one :subscription,
+    dependent: :destroy
 
   validates :email,
     presence: true,

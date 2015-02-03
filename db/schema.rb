@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150130224941) do
+ActiveRecord::Schema.define(version: 20150203124951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20150130224941) do
   end
 
   add_index "signups", ["user_id", "email"], name: "index_signups_on_user_id_and_email", unique: true, using: :btree
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.uuid     "user_id",     null: false
+    t.json     "stripe_data"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", unique: true, using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       only: [:index]
 
     resource :subscriptions,
-      only: [:show]
+      only: [:show, :create]
   end
 
   get '/docs' => 'pages#docs', as: :docs
