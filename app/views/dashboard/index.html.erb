@@ -1,6 +1,17 @@
 <%= render 'shared/navbar' %>
 
 <div class="container">
+  <% if flash[:thanks] %>
+    <div class="well" style="margin: 40px 0">
+      <div class="well-body" style="padding: 18px 24px">
+        <h3>Yay! The whole team is doing a little dance.</h3>
+        <p>So glad to have you as a customer. Feel free to <%= mail_to 'email us', 'support@signupsumo.com' %> anytime for any reason. Even if you just want to say "Konnichiwa".</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="container">
   <div class="row" style="padding: 60px 0">
     <!-- Include video on how to install the script -->
     <div class="col-xs-12">

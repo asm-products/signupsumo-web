@@ -20,6 +20,7 @@ gem 'roadie-rails'
 gem 'sass-rails', '~> 5.0.1'
 gem 'sidekiq'
 gem 'sinatra'
+gem 'stripe'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @subscription = current_user.subscription
     @subscription ||= Subscription.new
@@ -8,7 +10,8 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_create_params)
 
     if @subscription.save
-      redirect_to :show
+      flash[:thanks] = true
+      redirect_to dashboard_index_path
     else
       render :show
     end
@@ -16,6 +19,7 @@ class SubscriptionsController < ApplicationController
 
   def subscription_create_params
     params.require(:subscription).
-      permit(:card_token)
+      permit(:card_token).
+      merge(user_id: current_user.id)
   end
 end

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :dashboard,
       only: [:index]
 
-    resource :subscriptions,
+    resource :subscription,
       only: [:show, :create]
   end
 
