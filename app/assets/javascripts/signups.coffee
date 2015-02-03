@@ -1,6 +1,8 @@
 #= require superagent
 
-class @SignupSumo
+class SignupSumo
+  instance = null
+
   DEFAULT_BASE_ENDPOINT = "http://signupsumo.com/api/v1/"
 
   DEFAULT_NOTIFIER_ENDPOINT = DEFAULT_BASE_ENDPOINT + "signups"
@@ -11,10 +13,24 @@ class @SignupSumo
 
   DEFAULT_EMAIL_INPUT_SELECTOR = 'input[type="email"], input[type="text"]'
 
+  @init: ->
+    instance = new @ unless instance
+
+    instance
+
+  @setToken: (token) ->
+    @init().token = token
+
+  @send: (email) ->
+    @init().send(email)
+
   constructor: ->
-    @token = document.querySelector('script[data-token]').getAttribute('data-token')
-    @debug = document.querySelector('script[data-debug]').getAttribute('data-debug')
-    @installListeners()
+    @token = @getDataAttribute('data-token')
+    @debug = @getDataAttribute('data-debug')
+    @auto  = @getDataAttribute('data-auto')
+
+    if @token and @auto
+      @installListeners()
 
   forms: ->
     document.forms
@@ -23,6 +39,9 @@ class @SignupSumo
     if @debug and console
       [].unshift.call(arguments, "[SignupSumo v#{NOTIFIER_VERSION}]")
       console.log.apply(console, arguments)
+
+  getDataAttribute: (name) ->
+    document.querySelector("script[#{name}]")?.getAttribute(name)
 
   installListeners: ->
     @log 'Installing listeners...'
@@ -38,24 +57,29 @@ class @SignupSumo
   handleBlur: (field) ->
     cleanEmail = field.value.replace(/^\s+|\s+$/g, '')
     if @validateEmailFormat(cleanEmail)
-      @submitEmail(cleanEmail)
+      @send(cleanEmail)
 
-  submitEmail: (email) ->
-    endpoint = DEFAULT_NOTIFIER_ENDPOINT
-    data =
-      token: @token
-      url: window.location.origin
-      email: email
+  send: (email) ->
+    if @token
+      endpoint = DEFAULT_NOTIFIER_ENDPOINT
+      data =
+        token: @token
+        url: window.location.origin
+        email: email
 
-    superagent
-      .post(endpoint)
-      .send(data)
+      return superagent
+        .post(endpoint)
+        .send(data)
+    else
+      throw 'Token required to send emails. Do `SignupSumo.setToken(TOKEN)` to set it'
 
   validateEmailFormat: (email) ->
     !!email.match(EMAIL_REGEX)
 
+window.SignupSumo = SignupSumo
+
 loadCompleted = ->
-  new SignupSumo
+  SignupSumo.init()
 
 if document.addEventListener
   document.addEventListener("DOMContentLoaded", loadCompleted, true)
