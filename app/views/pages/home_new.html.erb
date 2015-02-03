@@ -1,0 +1,43 @@
+<div class="callout">
+  <%= render 'shared/navbar' %>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>VIP Signup Alerts</h1>
+      <h2>Connect with your most valuable users</h2>
+
+      <div style="padding: 60px 0 140px 0">
+        <%= link_to new_user_registration_path, class: 'btn btn-primary btn' do %>
+          Get started <span class="hidden-xs">&mdash; it's free!</span>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-0">
+          <div class="email">
+            <div class="email-toolbar">
+              <span class="toolbar-button toolbar-button-red"></span>
+              <span class="toolbar-button toolbar-button-yellow"></span>
+              <span class="toolbar-button toolbar-button-green"></span>
+            </div>
+            <ul class="email-header">
+              <li><span>Subject: </span>Doessier on new VIP</li>
+              <li><span>Fred Wilson </span>just signed up!</li>
+            </ul>
+            <ul class="email-content">
+              <li>His twitter account is <a href="#">@fredwilson</a> and he has <span>450,000</span> followers.</li>
+              <li>He is a developer. His GitHub account is <a href="#">@fwilson</a>.</li>
+              <li>He works for a recently funded startup.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="price">Only <span>$9.99</span> a month for up to <span>100</span> hand picked influential members of your product.</h3>
+</div>
+
+<%= render 'shared/footer' %>

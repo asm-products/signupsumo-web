@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     get '/docs' => 'pages#docs', as: :docs
   end
 
+  get '/home' => 'pages#home_new'
+
   root 'pages#home'
 
   resource :styleguide,

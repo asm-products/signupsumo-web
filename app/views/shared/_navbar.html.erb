@@ -8,9 +8,14 @@
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to root_path, class: 'navbar-brand' do %>
-        Signup<br>
-        Sumo
+      <%= link_to root_path, class: 'navbar-brand clearfix' do %>
+        <div class="pull-left">
+          <%= image_tag "icons/sumo-embelem-yellow@2x.png", height: '68px' %>
+        </div>
+        <div class="pull-left" style="padding-left: 12px">
+          <span style="color: #141c46">Signup</span><br>
+          Sumo
+        </div>
       <% end %>
     </div>
 
@@ -36,15 +41,13 @@
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
           </li>
         <% else %>
-          <% if current_page?(new_user_registration_path) %>
-            <li>
-              <%= link_to 'Sign in', new_user_session_path %>
-            </li>
-          <% end %>
-
           <% if current_page?(new_user_session_path) %>
             <li>
               <%= link_to 'Sign up', new_user_registration_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Sign in', new_user_session_path %>
             </li>
           <% end %>
         <% end %>

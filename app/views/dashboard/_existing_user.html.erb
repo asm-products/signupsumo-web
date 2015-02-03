@@ -76,28 +76,30 @@
   </div>
 </div>
 
-<hr>
+<% unless current_user.subscription && current_user.subscription.active? %>
+  <hr>
 
-<div class="container">
-  <div class="row" style="padding: 60px 0">
-    <div class="col-xs-12 col-sm-7">
-      <h2>When the time is right...</h2>
-      <p>Upgrade your account so you don't miss your chance to
-      connect with any high-profile signups. <strong>You can cancel anytime</strong> and we'll never charge you a penny until
-      you run through your 10 free notifications.</p> 
-    </div>
-    <div class="xs-hidden col-sm-4 col-sm-offset-1">
-      <div style="font-weight: 800; color: #ffac27">
-        <span style="font-size: 120px">
-          $9<span style="font-size: 50px; vertical-align: 60%; margin-left: 10px">MO</span>
-        </span>
-        <a href="#" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px">
-          Upgrade!
-        </a>
+  <div class="container">
+    <div class="row" style="padding: 60px 0">
+      <div class="col-xs-12 col-sm-7">
+        <h2>When the time is right...</h2>
+        <p>Upgrade your account so you don't miss your chance to
+        connect with any high-profile signups. <strong>You can cancel anytime</strong> and we'll never charge you a penny until
+        you run through your 10 free notifications.</p> 
+      </div>
+      <div class="xs-hidden col-sm-4 col-sm-offset-1">
+        <div style="font-weight: 800; color: #ffac27">
+          <span style="font-size: 120px">
+            $9<span style="font-size: 50px; vertical-align: 60%; margin-left: 10px">MO</span>
+          </span>
+          <a href="#" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px">
+            Upgrade!
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="callout callout-dark">
   <div class="container">

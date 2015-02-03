@@ -1,0 +1,14 @@
+.price {
+  color: $black;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 60px;
+  text-align: center;
+  margin: 40px 0;
+
+  span {
+    color: $orange-light;
+    border-bottom: 5px solid $black;
+    font-weight: 800;
+  }
+}
