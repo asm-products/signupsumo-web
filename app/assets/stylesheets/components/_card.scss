@@ -1,0 +1,45 @@
+.card {
+  background-color: $white;
+  border: 2px solid #c6d0d9;
+  border-radius: $border-radius-base;
+}
+
+.card-body {
+  text-align: center;
+  padding: 30px;
+
+  p {
+    font-size: $font-size-h5;
+    font-weight: 600;
+    color: $gray-lighter;
+    text-transform: uppercase;
+  }
+}
+
+.card-avatar {
+  border-radius: 50%;
+  border: 1px solid #c3d0d8;
+  height: 130px;
+  margin: 10px auto 40px auto;
+  overflow: hidden;
+  position: relative;
+  width: 130px;
+
+  img {
+    position: absolute;
+    height: 130px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.card-details {
+  text-align: center;
+  padding: 30px;
+  border-top: 2px solid #f1f3f6;
+
+  ul {
+    margin-bottom: 0;
+  }
+}
