@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 20150219234837) do
   add_index "signups", ["user_id", "email"], name: "index_signups_on_user_id_and_email", unique: true, using: :btree
 
   create_table "subscriptions", force: :cascade do |t|
-    t.uuid     "user_id",    null: false
+    t.uuid     "user_id",      null: false
     t.json     "customer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "active_until"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id", unique: true, using: :btree
