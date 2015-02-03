@@ -1,9 +1,11 @@
 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
-unless Stripe::Plan.retrieve(Subscription::PLAN)
+begin
+  Stripe::Plan.retrieve(Subscription::PLAN)
+rescue Stripe::InvalidRequestError
   Stripe::Plan.create(
     amount: 900,
-    interval: 'monthly',
+    interval: 'month',
     name: '100 Monthly',
     currency: 'usd',
     id: Subscription::PLAN
