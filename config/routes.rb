@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   get '/docs' => 'pages#docs', as: :docs
 
+  post '/subscriptions/webhook' => 'subscriptions#webhook', as: :webhook
+
   root 'pages#home'
 
   resource :styleguide,
