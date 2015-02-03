@@ -1,0 +1,35 @@
+<div style="height: 100%; background: center top no-repeat url('<%= image_path('new-user-backdrop.png') %>')">
+  <div class="container">
+    <div class="row" style="padding: 60px 0">
+      <!-- Include video on how to install the script -->
+      <div class="col-xs-12">
+        <div class="modal" style="display: block; position: static">
+          <div class="modal-dialog" style="width: 90%">
+            <div class="modal-content">
+              <div class="modal-body" style="padding: 24px 48px">
+                <h2>Let's get setup</h2>
+                <p>We configured this script tag just for you. Include it anywhere on
+                your signup page. We'll keep an eye on your signups and shoot you an
+                email when that special someone signs up.</p>
+
+                <div class="well" style="margin-top: 36px">
+                  <div class="well-body">
+                    <code>
+                      <%= %{<script} %><br>
+                      <%= %{src="//assets.signupsumo.com/signups.js"} %><br>
+                      <%= %{data-token="#{current_user.authentication_token}">} %><br>
+                      <%= %{</script>} %>
+                    </code>
+                  </div>
+                </div>
+
+                <%= link_to 'Learn more about how this works', docs_path %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
