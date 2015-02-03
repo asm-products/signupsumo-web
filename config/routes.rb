@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
     resources :dashboard,
       only: [:index]
+
+    resource :subscriptions,
+      only: [:show]
   end
 
   get '/docs' => 'pages#docs', as: :docs
