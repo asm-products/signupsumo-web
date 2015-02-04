@@ -17,13 +17,13 @@
       <% @influencers.each do |signup| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
-            <div class="card-body text-center text-uppercase">
+            <div class="card-body text-center">
               <div class="card-avatar">
                 <%= image_tag signup.avatar %>
               </div>
 
               <h4><%= signup.name %></h4>
-              <p><%= signup.details %></p>
+              <p class="text-uppercase"><%= signup.details %></p>
               <%= mail_to signup.email, signup.email %>
             </div>
             <div class="card-details">
@@ -51,7 +51,7 @@
             Most engaged
           </td>
           <td>
-            Influence
+            Grade
           </td>
         </tr>
       </thead>
@@ -68,7 +68,7 @@
             </td>
             <td><%= mail_to signup.email, signup.email %></td>
             <td><%= link_to signup.social.first.first.capitalize, signup.social.first.last %></td>
-            <td><%= signup.score * 100 %></td>
+            <td><%= signup.grade %></td>
           </tr>
         <% end %>
       </tbody>

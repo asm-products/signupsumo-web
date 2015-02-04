@@ -60,6 +60,16 @@ class Signup < ActiveRecord::Base
     person[:avatar]
   end
 
+  def grade
+    case score
+    when 1.0       then 'A+'
+    when 0.9..1.0  then 'A'
+    when 0.8..0.9  then 'B'
+    when 0.7..0.8  then 'C'
+    else                'F'
+    end
+  end
+
   def employment
     person.fetch(:employment, {})
   end
