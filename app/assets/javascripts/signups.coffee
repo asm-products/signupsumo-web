@@ -3,7 +3,7 @@
 class SignupSumo
   instance = null
 
-  DEFAULT_BASE_ENDPOINT = "http://signupsumo.com/api/v1/"
+  DEFAULT_BASE_ENDPOINT = "https://signupsumo.com/api/v1/"
 
   DEFAULT_NOTIFIER_ENDPOINT = DEFAULT_BASE_ENDPOINT + "signups"
 
@@ -27,7 +27,7 @@ class SignupSumo
   constructor: ->
     @token = @getDataAttribute('data-token')
     @debug = @getDataAttribute('data-debug')
-    @auto  = @getDataAttribute('data-auto')
+    @auto  = @getDataAttribute('data-auto') != "false"
 
     if @token and @auto
       @installListeners()
@@ -57,7 +57,7 @@ class SignupSumo
   handleBlur: (field) ->
     cleanEmail = field.value.replace(/^\s+|\s+$/g, '')
     if @validateEmailFormat(cleanEmail)
-      @send(cleanEmail)
+      @send(cleanEmail).end()
 
   send: (email) ->
     if @token
