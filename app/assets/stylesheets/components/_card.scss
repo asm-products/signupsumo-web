@@ -4,6 +4,12 @@
   border-radius: $border-radius-base;
 }
 
+.card-empty {
+  background-color: $white;
+  border: 2px dashed lighten(#c6d0d9, 10%);
+  height: 432px;
+}
+
 .card-title {
   border-bottom: 2px solid #f1f3f6;
   padding: 30px;

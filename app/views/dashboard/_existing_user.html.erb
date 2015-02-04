@@ -36,6 +36,14 @@
           </div>
         </div>
       <% end %>
+
+
+      <% [3 - @influencers.count, 0].max.times do %>
+        <div class="hidden-xs hidden-sm col-md-4">
+          <div class="card card-empty">
+          </div>
+        </div>
+      <% end %>
     </div>
 
     <table class="table table-fancy" style="margin-top: 40px">
