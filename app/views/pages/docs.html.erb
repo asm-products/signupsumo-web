@@ -95,7 +95,7 @@
       <div class="well" style="margin: 24px 0">
         <div class="well-body" style="padding: 18px">
           <code>
-            curl https://signupsumo.com/api/v1/signups?token=<%= current_user.authentication_token %>&email=<%= URI.escape('pg@ycombinator.com') %><br>
+            curl "https://signupsumo.com/api/v1/signups?token=<%= current_user.authentication_token %>&email=pg@ycombinator.com"<br>
             <br>
             { "response": "Submitted successfully" }
           </code>
@@ -107,7 +107,7 @@
       <div class="well" style="margin: 24px 0">
         <div class="well-body" style="padding: 18px">
           <code>
-            curl https://signupsumo.com/api/v1/signups?token=INVALID&email=<%= URI.escape('pg@ycombinator.com') %><br>
+            curl "https://signupsumo.com/api/v1/signups?token=INVALID&email=pg@ycombinator.com"<br>
             <br>
             { "response": "Bad request" }
           </code>
