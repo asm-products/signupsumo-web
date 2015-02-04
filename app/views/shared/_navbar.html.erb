@@ -30,9 +30,11 @@
             <li>
               <%= link_to 'Docs', docs_path %>
             </li>
-            <li>
-              <%= link_to 'Bills', subscription_path %>
-            </li>
+            <% if current_user.setup? %>
+              <li>
+                <%= link_to 'Bills', subscription_path %>
+              </li>
+            <% end %>
             <li>
               <%= link_to 'Settings', edit_user_registration_path %>
             </li>

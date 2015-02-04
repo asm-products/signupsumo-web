@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   before_validation :set_authentication_token
 
+  def setup?
+    signups.exists?
+  end
+
   def set_authentication_token
     self.authentication_token ||= generate_authentication_token
   end
