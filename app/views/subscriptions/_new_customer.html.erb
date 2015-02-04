@@ -61,48 +61,59 @@
 <hr>
 
 <div class="container">
-  <div class="row" style="padding: 60px 0">
-    <div class="col-xs-12 col-sm-7">
-      <%= form_for @subscription, url: subscription_path do |f| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label>Card Number</label>
-              <input type="text" autofocus="true" class="form-control input-lg" placeholder="4242 4242 4242 4242" data-stripe="number">
-            </div>
-          </div>
-        </div>
+  <div style="padding: 40px 0">
 
-        <div class="row">
-          <div class="col-xs-4">
-            <div class="form-group">
-              <label>CVC</label>
-              <input type="text" class="form-control input-lg" placeholder="99" data-stripe="cvc"> 
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="form-group">
-              <label>Exp Month</label>
-              <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%m') %>" data-stripe="exp-month"> 
-            </div>
-          </div>
-          <div class="col-xs-4">
-            <div class="form-group">
-              <label>Exp Year</label>
-              <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%Y') %>" data-stripe="exp-year"> 
-            </div>
-          </div>
-        </div>
+    <h2>
+      Subscribe 
 
-        <%= f.submit "Subscribe for $9/mo", class: 'btn btn-primary btn-lg', style: 'margin-top: 24px' %>
+      <%= link_to 'https://stripe.com' do %>
+        <%= image_tag 'stripe.png', style: 'margin: -6px 0 0 6px' %>
       <% end %>
-    </div>
+    </h2>
 
-    <div class="col-xs-12 col-sm-5">
-      <ul style="margin-left: 12px">
-        <li style="padding: 12px 0"><p>Promote your product through the users who care the most.</p></li>
-        <li style="padding: 12px 0"><p>Never miss a change to connect with your newest, most important customer.</p></li>
-      </ul>
+    <div class="row" style="margin-top: 20px">
+      <div class="col-xs-12 col-sm-7">
+        <%= form_for @subscription, url: subscription_path do |f| %>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label>Card Number</label>
+                <input type="text" autofocus="true" class="form-control input-lg" placeholder="4242 4242 4242 4242" data-stripe="number">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label>CVC</label>
+                <input type="text" class="form-control input-lg" placeholder="99" data-stripe="cvc"> 
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label>Exp Month</label>
+                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%m') %>" data-stripe="exp-month"> 
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="form-group">
+                <label>Exp Year</label>
+                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%Y') %>" data-stripe="exp-year"> 
+              </div>
+            </div>
+          </div>
+
+          <%= f.submit "Subscribe for $9/mo", class: 'btn btn-primary btn-lg', style: 'margin-top: 24px' %>
+        <% end %>
+      </div>
+
+      <div class="col-xs-12 col-sm-5">
+        <ul style="margin-left: 12px">
+          <li style="padding: 12px 0"><p>Promote your product through the users who care the most.</p></li>
+          <li style="padding: 12px 0"><p>Never miss a change to connect with your newest, most important customer.</p></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
