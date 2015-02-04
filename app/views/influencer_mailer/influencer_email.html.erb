@@ -16,7 +16,7 @@
         <table>
           <tbody>
             <tr>
-              <td>
+              <td width="140">
                 <%= image_tag @signup.avatar, height: '140' %><br>
               </td>
               <td class="pad-left">
@@ -46,7 +46,7 @@
               <td class="pad-left">
                 SignupSumo is the best way to get notified when influential users sign up.<br>
                 <br>
-                Not diggin' these emails? Change your notification settings.<br>
+                Not diggin' these emails? <%= link_to 'Edit your account', edit_user_registration_url(host: 'signupsumo.com') %>.<br>
               </td>
             </tr>
           </tbody>
