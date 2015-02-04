@@ -12,11 +12,15 @@
     text-align: center;
   }
 
-  td {
+  td.pad-left {
+    padding-left:2em;
+  }
+
+  tr {
     padding: 20px;
 
     &.header {
-      background-color: $orange-light;
+      background: $orange-light !important;
 
       p {
         color: $white;
@@ -24,14 +28,16 @@
     }
 
     &.details {
-      background-color: $blue;
+      background: $blue !important;
       color: $white;
     }
 
     &.footer {
-      background-color: $black;
-      color: $gray-light;
-      text-align: left;
+      background: $black !important;
+      td {
+        color: $gray-light !important;
+        text-align: left;
+      }
     }
   }
 }

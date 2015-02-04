@@ -17,3 +17,12 @@
 button.close {
   opacity: 1;
 }
+
+.btn-primary {
+  color: $white !important;
+  background-color: $brand-primary !important;
+  border-color: #23b4bc;
+  &:hover {
+    background-color: darken($link-color, 15%) !important;
+  }
+}
