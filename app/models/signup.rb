@@ -71,19 +71,19 @@ class Signup < ActiveRecord::Base
   end
 
   def employment
-    person.fetch(:employment, {})
+    person.fetch(:employment, {}) || {}
   end
 
   def person
-    data.fetch(:person, {})
+    data.fetch(:person, {}) || {}
   end
 
   def company
-    data.fetch(:company, {})
+    data.fetch(:company, {}) || {}
   end
 
   def score
-    data.fetch(:score, {})
+    data.fetch(:score, {}) || 0
   end
 
   def data
