@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     get '/home' => 'pages#home'
   end
 
+  get '/terms' => 'pages#terms',
+    as: :terms
+
   root 'pages#home'
 
   resource :styleguide,
