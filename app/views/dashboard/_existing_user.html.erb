@@ -13,78 +13,88 @@
   <div style="padding: 40px 0">
     <h2>Your Influencers</h2>
 
-    <div class="row" style="margin-top: 40px">
-      <% @influencers.order("data->>'score' DESC").limit(3).each do |signup| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card">
-            <div class="card-body text-center">
-              <div class="card-avatar">
-                <%= image_tag signup.avatar %>
-              </div>
+    <% if @influencers.any? %>
+      <div class="row" style="margin-top: 40px">
+        <% @influencers.order("data->>'score' DESC").limit(3).each do |signup| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card">
+              <div class="card-body text-center">
+                <div class="card-avatar">
+                  <%= image_tag signup.avatar %>
+                </div>
 
-              <h4><%= signup.name %></h4>
-              <p class="text-uppercase"><%= signup.details %></p>
-              <%= mail_to signup.email, signup.email %>
-            </div>
-            <div class="card-details">
-              <ul class="list-inline">
-                <% signup.social.to_a.take(3).each do |name, url| %>
-                  <li><%= link_to name.capitalize, url %></li>
-                <% end %>
-              </ul>
+                <h4><%= signup.name %></h4>
+                <p class="text-uppercase"><%= signup.details %></p>
+                <%= mail_to signup.email, signup.email %>
+              </div>
+              <div class="card-details">
+                <ul class="list-inline">
+                  <% signup.social.to_a.take(3).each do |name, url| %>
+                    <li><%= link_to name.capitalize, url %></li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-
-
-      <% [3 - @influencers.count, 0].max.times do %>
-        <div class="hidden-xs hidden-sm col-md-4">
-          <div class="card card-empty">
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <table class="table table-fancy" style="margin-top: 40px">
-      <thead>
-        <tr>
-          <td>
-            Influencer
-          </td>
-          <td>
-            Email
-          </td>
-          <td>
-            Most engaged
-          </td>
-          <td>
-            Grade
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @influencers.order('created_at DESC').each do |signup| %>
-          <tr>
-            <td class="clearfix">
-              <div class="table-avatar pull-left">
-                <%= image_tag signup.avatar %>
-              </div>
-              <div class="pull-left" style="margin-left: 12px; line-height: 42px">
-                <%= signup.name %>
-              </div>
-            </td>
-            <td><%= mail_to signup.email, signup.email %></td>
-            <td>
-              <% if signup.social.first.present? %>
-                <%= link_to signup.social.first.first.capitalize, signup.social.first.last %>
-              <% end %>
-            </td>
-            <td><%= signup.grade %></td>
-          </tr>
         <% end %>
-      </tbody>
-    </table>
+
+
+        <% [3 - @influencers.count, 0].max.times do %>
+          <div class="hidden-xs hidden-sm col-md-4">
+            <div class="card card-empty">
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <table class="table table-fancy" style="margin-top: 40px">
+        <thead>
+          <tr>
+            <td>
+              Influencer
+            </td>
+            <td>
+              Email
+            </td>
+            <td>
+              Most engaged
+            </td>
+            <td>
+              Grade
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @influencers.order('created_at DESC').each do |signup| %>
+            <tr>
+              <td class="clearfix">
+                <div class="table-avatar pull-left">
+                  <%= image_tag signup.avatar %>
+                </div>
+                <div class="pull-left" style="margin-left: 12px; line-height: 42px">
+                  <%= signup.name %>
+                </div>
+              </td>
+              <td><%= mail_to signup.email, signup.email %></td>
+              <td>
+                <% if signup.social.first.present? %>
+                  <%= link_to signup.social.first.first.capitalize, signup.social.first.last %>
+                <% end %>
+              </td>
+              <td><%= signup.grade %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="well" style="margin-top: 30px">
+        <div class="well-body" style="padding: 24px">
+          <p style="margin-bottom: 0">Sweet! We've started receiving signups from you, but we
+          haven't seen any influential folks come through yet. We'll keep you
+          posted.</p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -92,7 +102,7 @@
   <hr>
 
   <div class="container">
-    <div class="row" style="padding: 60px 0">
+    <div class="row" style="padding: 40px 0 60px 0">
       <div class="col-xs-12 col-sm-7">
         <h2>When the time is right...</h2>
         <p>Upgrade your account so you don't miss your chance to
