@@ -8,16 +8,21 @@
 <script type="text/javascript">
   $(function() {
     $('#new_subscription').submit(function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+
       var $form = $(this);
       $form.find('input[type=submit]').prop('disabled', true);
+      $form.find('.alert-danger').addClass('hidden')
 
       Stripe.card.createToken($form, function(status, response) {
-        if (response.error) {
-          // Show errors
-          $form.find('button').prop('disabled', false);
+        if (response.error || !response.id) {
+          $form.find('.alert-danger').text(response.error.message);
+          $form.find('.alert-danger').removeClass('hidden');
+          $form.find('input[type=submit]').prop('disabled', false);
         } else {
           var token = response.id;
-          $form.append($('<input type="hidden" name="subscription[card_token]" />').val(token));
+          $form.append($('<input type="hidden" name="subscription[card_token]">').val(token));
           $form.get(0).submit();
         }
       });
@@ -74,6 +79,11 @@
     <div class="row" style="margin-top: 20px">
       <div class="col-xs-12 col-sm-7">
         <%= form_for @subscription, url: subscription_path do |f| %>
+          <div class="alert alert-danger alert-dismissible hidden" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+
           <div class="row">
             <div class="col-xs-12">
               <div class="form-group">

@@ -7,13 +7,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    @subscription = Subscription.new(subscription_create_params)
+    subscription_params = params[:subscription]
+    token = subscription_params && subscription_params[:card_token]
+
+    @subscription = Subscription.new(card_token: token, user_id: current_user.id)
 
     if @subscription.save
       flash[:thanks] = true
       redirect_to dashboard_index_path
     else
-      render :show
+      render 'show'
     end
   end
 
