@@ -4,15 +4,18 @@
   border-radius: $border-radius-base;
 }
 
+.card-title {
+  border-bottom: 2px solid #f1f3f6;
+  padding: 30px;
+}
+
 .card-body {
-  text-align: center;
   padding: 30px;
 
   p {
     font-size: $font-size-h5;
     font-weight: 600;
     color: $gray-lighter;
-    text-transform: uppercase;
   }
 }
 
