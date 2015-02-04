@@ -14,7 +14,7 @@
     <h2>Your Influencers</h2>
 
     <div class="row" style="margin-top: 40px">
-      <% @influencers.take(3).each do |signup| %>
+      <% @influencers.order("data->>'score' DESC").limit(3).each do |signup| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card">
             <div class="card-body text-center">
@@ -64,7 +64,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @influencers.each do |signup| %>
+        <% @influencers.order('created_at DESC').each do |signup| %>
           <tr>
             <td class="clearfix">
               <div class="table-avatar pull-left">
