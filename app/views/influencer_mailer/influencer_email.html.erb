@@ -16,12 +16,10 @@
         <table>
           <tbody>
             <tr>
-              <td style="text-align:center; width: 100%">
+              <td width="140">
                 <%= image_tag @signup.avatar, height: '140' %><br>
               </td>
-            </tr>
-            <tr>
-              <td style="text-align: center; width: 100%">
+              <td class="pad-left">
                 <h3><%= @signup.name %></h3>
                 <p class="text-muted"><%= @signup.details %></p>
                 <% @signup.social.each do |name, url| %>
