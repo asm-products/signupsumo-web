@@ -18,10 +18,11 @@ Rails.application.routes.draw do
     resource :subscription,
       only: [:show, :create]
 
-    get '/docs' => 'pages#docs', as: :docs
-  end
+    get '/docs' => 'pages#docs',
+      as: :docs
 
-  get '/home' => 'pages#home_new'
+    get '/home' => 'pages#home'
+  end
 
   root 'pages#home'
 
