@@ -1,3 +1,37 @@
+<!-- TODO: Switch to this when we get that screenshot
+<div style="background: 70% middle no-repeat url('<%= image_path('new-user-backdrop.png') %>')">
+  <div class="container">
+    <div class="alert alert-danger alert-dismissible" role="alert" style="margin: 40px 0">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      Hey, just a heads up. We haven't received any data from you yet.
+      <%= link_to 'Install our script', docs_path %> on your signup page.
+    </div>
+
+    <div class="row" style="margin: 40px 0">
+      <div class="col-xs-12 col-sm-8">
+        <h1>Yay! Let's get setup.</h1>
+        <h3 style="margin-top: 40px">Just include our tiny script on your signup page.</h3>
+        <p>We configured this script tag just for you. Include it anywhere on
+        your signup page. We'll keep an eye on your signups and shoot you an
+        email when that special someone signs up.</p>
+        <div class="well" style="margin-top: 36px">
+          <div class="well-body" style="padding: 18px">
+            <code>
+              <%= %{<script} %><br>
+              &nbsp;&nbsp;<%= %{src="//assets.signupsumo.com/signups.js"} %><br>
+              &nbsp;&nbsp;<%= %{data-token="#{current_user.authentication_token}">} %><br>
+              <%= %{</script>} %>
+            </code>
+          </div>
+        </div>
+
+        <%= link_to 'Learn more about how this works', docs_path %>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
 <div style="height: 100%; background: center top no-repeat url('<%= image_path('new-user-backdrop.png') %>')">
   <div class="container">
     <div class="row" style="padding: 60px 0">
