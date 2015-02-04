@@ -80,7 +80,7 @@
   }
 
   span {
-    font-weight: 900;
+    font-weight: 700;
   }
 
   &:before {
@@ -96,6 +96,24 @@
   }
 }
 
+.email-avatar {
+  border-radius: 50%;
+  border: 1px solid #c3d0d8;
+  height: 80px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  width: 80px;
+
+  img {
+    position: absolute;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .email-content {
   list-style: disc;
 
@@ -108,6 +126,6 @@
   }
 
   span {
-    font-weight: 900;
+    font-weight: 700;
   }
 }

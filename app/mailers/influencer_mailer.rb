@@ -3,6 +3,6 @@ class InfluencerMailer < ApplicationMailer
     @user = user
     @signup = signup
 
-    mail(to: @user.email, subject: 'Someone signed up!')
+    mail(to: @user.email, subject: "#{@user.first_name} just signed up!")
   end
 end
