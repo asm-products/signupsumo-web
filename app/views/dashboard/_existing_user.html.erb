@@ -75,7 +75,11 @@
               </div>
             </td>
             <td><%= mail_to signup.email, signup.email %></td>
-            <td><%= link_to signup.social.first.first.capitalize, signup.social.first.last %></td>
+            <td>
+              <% if signup.social.first.present? %>
+                <%= link_to signup.social.first.first.capitalize, signup.social.first.last %>
+              <% end %>
+            </td>
             <td><%= signup.grade %></td>
           </tr>
         <% end %>
