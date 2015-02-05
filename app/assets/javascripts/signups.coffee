@@ -53,11 +53,17 @@ class SignupSumo
       @log 'Installing listener to input field', input
       input.addEventListener 'blur', (event) =>
         @handleBlur(event.target)
+    form.addEventListener 'submit', (event) =>
+      @handleSubmit(form)
 
   handleBlur: (field) ->
     cleanEmail = field.value.replace(/^\s+|\s+$/g, '')
     if @validateEmailFormat(cleanEmail)
       @send(cleanEmail).end()
+
+  handleSubmit: (form) ->
+    for input in form.querySelectorAll(DEFAULT_EMAIL_INPUT_SELECTOR)
+      input.blur()
 
   send: (email) ->
     if @token
