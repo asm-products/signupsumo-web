@@ -25,7 +25,7 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
   - $ `$(boot2docker shellinit)`
   - To persist the environment variables across shell sessions, you can add `$(boot2docker shellinit)` to your `~/.bashrc` file
 - [Install Fig](http://www.fig.sh/install.html)
-  - ``curl -L https://github.com/docker/fig/releases/download/1.0.0/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig``
+  - ``curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig``
 - Build the Docker containers
   - $ `fig build`
 - Run the app
