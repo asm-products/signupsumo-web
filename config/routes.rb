@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/terms' => 'pages#terms',
     as: :terms
+  get '/privacy' => 'pages#privacy',
+    as: :privacy
 
   root 'pages#home'
 
