@@ -14,6 +14,12 @@ class Signup < ActiveRecord::Base
   scope :this_month,
     -> { where("DATE_TRUNC('month', created_at) = ?", Date.today.beginning_of_month) }
 
+  scope :hidden,
+    -> { where(hidden: true) }
+
+  scope :visible,
+    -> { where(hidden: false) }
+
   def name
     person.fetch(:name, {})[:full_name]
   end
