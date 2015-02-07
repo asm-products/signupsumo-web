@@ -27,13 +27,15 @@ class Subscription < ActiveRecord::Base
       email: user.email
     )
 
+    period_end = customer.subscriptions.data.find do |subscription|
+      subscription.status == "active"
+    end.current_period_end
+
     self.customer = customer.as_json
+    self.active_until = Time.at(period_end)
   end
 
   def active?
-    customer &&
-      customer[:subscriptions] &&
-      customer[:subscriptions][:data] &&
-      Array.wrap(customer[:subscriptions][:data]).any? { |s| s[:status] == 'active' }
+    active_until.present? && active_until.future?
   end
 end

@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/privacy' => 'pages#privacy',
     as: :privacy
 
+  post '/subscriptions/webhook' => 'subscriptions#webhook', as: :webhook
+
   root 'pages#home'
 
   resource :styleguide,
