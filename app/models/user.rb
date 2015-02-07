@@ -28,4 +28,17 @@ class User < ActiveRecord::Base
       break token unless User.where(authentication_token: token).exists?
     end
   end
+
+  def at_signup_limit?
+    count = signups.influential.this_month.count
+    count >= signup_limit
+  end
+
+  def signup_limit
+    if subscription && subscription.active?
+      100
+    else
+      10
+    end
+  end
 end

@@ -8,6 +8,12 @@ class Signup < ActiveRecord::Base
   validates :user_id,
     presence: true
 
+  scope :influential,
+    -> { where(influential: true) }
+
+  scope :this_month,
+    -> { where("DATE_TRUNC('month', created_at) = ?", Date.today.beginning_of_month) }
+
   def name
     person.fetch(:name, {})[:full_name]
   end
