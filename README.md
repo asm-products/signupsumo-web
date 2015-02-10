@@ -32,7 +32,7 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
   - $ `fig up`
 - Migrate the database
   - Do this in another terminal window
-    - `fig run web rake db:create`
+    - `fig run web rake db:create db:migrate`
 - Access the app locally
   - Run `boot2docker ip` to get the ip address of the Docker daemon
   - View the app at `IP_ADDRESS:3000`
@@ -40,4 +40,4 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
 #### Development notes
 
 - If you modify the `Gemfile` or the `Dockerfile` you will need to run `fig build` to rebuild the container.
-- If you get an error in building; try removing the `Gemfile.lock` and trying `fig build; fig up` again
+
