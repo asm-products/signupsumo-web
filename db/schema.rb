@@ -18,13 +18,14 @@ ActiveRecord::Schema.define(version: 20150219234837) do
   enable_extension "uuid-ossp"
 
   create_table "signups", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.uuid     "user_id",                    null: false
-    t.string   "email",                      null: false
-    t.boolean  "influential",                null: false
+    t.uuid     "user_id",                                    null: false
+    t.string   "email",                                      null: false
+    t.boolean  "influential",                                null: false
     t.json     "data"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.boolean  "hidden",      default: true
+    t.string   "type",        default: "SubscriptionSignup"
   end
 
   add_index "signups", ["hidden"], name: "index_signups_on_hidden", using: :btree

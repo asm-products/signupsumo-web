@@ -15,7 +15,8 @@ class ChecksInfluenceJob < ActiveJob::Base
       email: email,
       influential: influential,
       data: data,
-      hidden: user.at_signup_limit?
+      hidden: user.at_signup_limit?,
+      type: user.exhausted_freebies? ? 'SubscriptionSignup' : 'FreeSignup'
     )
 
     if influential && !user.at_signup_limit?

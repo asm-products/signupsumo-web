@@ -46,7 +46,7 @@ RSpec.describe User, :type => :model do
             }]
           }
         })
-        100.times { Fabricate.create(:signup, user: user, influential: true) }
+        100.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
 
         expect(user.at_signup_limit?).to be_truthy
       end
@@ -59,7 +59,7 @@ RSpec.describe User, :type => :model do
             }]
           }
         })
-        100.times { Fabricate.create(:signup, user: user, influential: true) }
+        100.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
 
         expect(user.at_signup_limit?).to be_falsey
       end
@@ -72,7 +72,7 @@ RSpec.describe User, :type => :model do
             }]
           }
         })
-        99.times { Fabricate.create(:signup, user: user, influential: true) }
+        99.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
 
         expect(user.at_signup_limit?).to be_falsey
       end

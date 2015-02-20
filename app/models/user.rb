@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_many :signups,
     dependent: :destroy
 
+  has_many :free_signups
+  has_many :subscription_signups
+
   has_one :subscription,
     dependent: :destroy
 
@@ -36,7 +39,7 @@ class User < ActiveRecord::Base
   def exhausted_subscription?
     subscription.nil? || (
       subscription.active? &&
-        signups.influential.this_month.count >= Subscription::MONTHLY_LIMIT
+        subscription_signups.influential.this_month.count >= Subscription::MONTHLY_LIMIT
     )
   end
 

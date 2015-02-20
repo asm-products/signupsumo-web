@@ -1,0 +1,2 @@
+class SubscriptionSignup < Signup
+end

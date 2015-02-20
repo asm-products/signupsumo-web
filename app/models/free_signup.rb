@@ -1,0 +1,2 @@
+class FreeSignup < Signup
+end
