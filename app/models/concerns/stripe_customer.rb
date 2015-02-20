@@ -20,19 +20,18 @@ module StripeCustomer
     )
 
     self.customer = customer.as_json
-    subscribe_stripe_customer if self.user.exhausted_freebies?
   end
 
   def subscribe_stripe_customer
-    if !active? && (customer = Stripe::Customer.retrieve(self.customer[:id]))
-      customer.subscriptions.create({:plan => PLAN})
+    if !active? && stripe_customer
+      stripe_customer.subscriptions.create({:plan => Subscription::PLAN})
       refresh_stripe_customer
     end
   end
 
   def refresh_stripe_customer
-    if customer = Stripe::Customer.retrieve(self.customer[:id])
-      self.customer = customer.as_json
+    if stripe_customer
+      self.customer = stripe_customer.as_json
       save
     end
   end

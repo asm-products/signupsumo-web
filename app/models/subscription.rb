@@ -19,27 +19,24 @@ class Subscription < ActiveRecord::Base
   end
 
   def active_stripe_subscription
-    Array.wrap(customer[:subscriptions][:data]).find do |s|
+    @active_stripe_subscription ||= stripe_subscriptions.find do |s|
        Time.now < Time.at(s[:current_period_end]) && s[:status] == 'active'
     end
   end
 
   def stripe_subscriptions
-    customer &&
-      customer[:subscriptions] &&
-      customer[:subscriptions][:data]
-  end
-
-  def stripe_subscription
-    @stripe_subscription ||= stripe_subscriptions &&
-      active_stripe_subscription
+    (
+      customer &&
+        customer[:subscriptions] &&
+        Array.wrap(customer[:subscriptions][:data])
+    ) || []
   end
 
   def active?
-    stripe_subscription.present?
+    active_stripe_subscription.present?
   end
 
   def needs_info?
-    stripe_customer.nil? || (stripe_subscriptions && !active?)
+    stripe_customer.nil? || (stripe_subscriptions.present? && !active?)
   end
 end
