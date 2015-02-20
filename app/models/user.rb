@@ -29,16 +29,18 @@ class User < ActiveRecord::Base
     end
   end
 
-  def at_signup_limit?
-    count = signups.influential.this_month.count
-    count >= signup_limit
+  def exhausted_freebies?
+    freebie_count <= 0
   end
 
-  def signup_limit
-    if subscription && subscription.active?
-      100
-    else
-      10
-    end
+  def exhausted_subscription?
+    subscription.nil? || (
+      subscription.active? &&
+        signups.influential.this_month.count >= Subscription::MONTHLY_LIMIT
+    )
+  end
+
+  def at_signup_limit?
+    exhausted_freebies? && exhausted_subscription?
   end
 end

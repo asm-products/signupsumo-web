@@ -34,9 +34,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'faker'
   gem 'fabrication'
   gem 'pry'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 group :production do

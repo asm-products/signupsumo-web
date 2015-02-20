@@ -1,5 +1,6 @@
 class Subscription < ActiveRecord::Base
   PLAN = '100_monthly'
+  MONTHLY_LIMIT = 100
 
   attr_accessor :card_token
 
