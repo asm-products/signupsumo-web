@@ -18,6 +18,8 @@ class ChecksInfluenceJob < ActiveJob::Base
       hidden: user.at_signup_limit?
     )
 
-    InfluencerMailer.influencer_email(user, signup).deliver_now if influential && !user.at_signup_limit?
+    if influential && !user.at_signup_limit?
+      InfluencerMailer.influencer_email(user, signup).deliver_now
+    end
   end
 end
