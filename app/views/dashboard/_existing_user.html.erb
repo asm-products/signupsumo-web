@@ -98,7 +98,7 @@
   </div>
 </div>
 
-<% unless current_user.subscription %>
+<% if !current_user.subscription || !current_user.subscription.active?%>
   <hr>
 
   <div class="container">
