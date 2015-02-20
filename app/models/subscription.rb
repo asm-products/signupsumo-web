@@ -6,7 +6,7 @@ class Subscription < ActiveRecord::Base
 
   belongs_to :user
 
-  before_validation :create_stripe_subscription,
+  before_validation :create_stripe_customer,
     on: :create
 
   validates :customer,
@@ -19,22 +19,35 @@ class Subscription < ActiveRecord::Base
     super && super.deep_symbolize_keys
   end
 
-  def create_stripe_subscription
+  def create_stripe_customer
     return if card_token.blank? || user.blank?
 
     customer = Stripe::Customer.create(
       card: card_token,
-      plan: PLAN,
       email: user.email
     )
 
     self.customer = customer.as_json
   end
 
+  def subscribe_stripe_customer
+    if customer = Stripe::Customer.retrieve(customer[:id])
+      customer.subscriptions.create({:plan => PLAN})
+      refresh_stripe_customer
+    end
+  end
+
+  def refresh_stripe_customer
+    if customer = Stripe::Customer.retrieve(customer[:id])
+      self.customer = customer.as_json
+      save
+    end
+  end
+
   def active?
     customer &&
       customer[:subscriptions] &&
       customer[:subscriptions][:data] &&
-      Array.wrap(customer[:subscriptions][:data]).any? { |s| s[:status] == 'active' }
+      Array.wrap(customer[:subscriptions][:data]).find{ |s| s[:status] == 'active' }
   end
 end
