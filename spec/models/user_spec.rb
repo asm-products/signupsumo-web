@@ -39,10 +39,11 @@ RSpec.describe User, :type => :model do
     context 'with subscription' do
       it 'returns true when exhausted_freebies? and exhausted_subscription?' do
         user = Fabricate.create(:user, password: 'abc123567', freebie_count: 0)
-        user.create_subscription(:customer => {
-          :subscriptions => {
-            :data => [{
-              :status => 'active'
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
             }]
           }
         })
@@ -52,10 +53,11 @@ RSpec.describe User, :type => :model do
       end
       it 'returns false when !exhausted_freebies?' do
         user = Fabricate.create(:user, password: 'abc123567', freebie_count: 1)
-        user.create_subscription(:customer => {
-          :subscriptions => {
-            :data => [{
-              :status => 'active'
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
             }]
           }
         })
@@ -65,10 +67,11 @@ RSpec.describe User, :type => :model do
       end
       it 'returns false when !exhausted_subscription?' do
         user = Fabricate.create(:user, password: 'abc123567', freebie_count: 0)
-        user.create_subscription(:customer => {
-          :subscriptions => {
-            :data => [{
-              :status => 'active'
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
             }]
           }
         })

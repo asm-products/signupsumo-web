@@ -20,6 +20,7 @@ module StripeCustomer
     )
 
     self.customer = customer.as_json
+    subscribe_stripe_customer if self.user.exhausted_freebies?
   end
 
   def subscribe_stripe_customer

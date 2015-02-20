@@ -18,11 +18,17 @@ class Subscription < ActiveRecord::Base
     super && super.deep_symbolize_keys
   end
 
+  def active_stripe_subscription
+    Array.wrap(customer[:subscriptions][:data]).find do |s|
+       Time.now < Time.at(s[:current_period_end]) && s[:status] == 'active'
+    end
+  end
+
   def stripe_subscription
     @stripe_subscription ||= customer &&
       customer[:subscriptions] &&
       customer[:subscriptions][:data] &&
-      Array.wrap(customer[:subscriptions][:data]).find{ |s| s[:status] == 'active' }
+      active_stripe_subscription
   end
 
   def active?
