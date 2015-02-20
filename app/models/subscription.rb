@@ -1,12 +1,12 @@
 class Subscription < ActiveRecord::Base
   PLAN = '100_monthly'
+  MONTHLY_LIMIT = 100
+
+  include StripeCustomer
 
   attr_accessor :card_token
 
   belongs_to :user
-
-  before_validation :create_stripe_subscription,
-    on: :create
 
   validates :customer,
     presence: true
@@ -18,22 +18,25 @@ class Subscription < ActiveRecord::Base
     super && super.deep_symbolize_keys
   end
 
-  def create_stripe_subscription
-    return if card_token.blank? || user.blank?
+  def active_stripe_subscription
+    @active_stripe_subscription ||= stripe_subscriptions.find do |s|
+       Time.now < Time.at(s[:current_period_end]) && s[:status] == 'active'
+    end
+  end
 
-    customer = Stripe::Customer.create(
-      card: card_token,
-      plan: PLAN,
-      email: user.email
-    )
-
-    self.customer = customer.as_json
+  def stripe_subscriptions
+    (
+      customer &&
+        customer[:subscriptions] &&
+        Array.wrap(customer[:subscriptions][:data])
+    ) || []
   end
 
   def active?
-    customer &&
-      customer[:subscriptions] &&
-      customer[:subscriptions][:data] &&
-      Array.wrap(customer[:subscriptions][:data]).any? { |s| s[:status] == 'active' }
+    active_stripe_subscription.present?
+  end
+
+  def needs_info?
+    stripe_customer.nil? || (stripe_subscriptions.present? && !active?)
   end
 end

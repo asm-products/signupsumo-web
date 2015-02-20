@@ -9,7 +9,7 @@ RSpec.describe User, :type => :model do
     end
 
     it 'should not create duplicate email' do
-      user = Fabricate(:user)
+      Fabricate(:user)
       user = Fabricate.build(:user)
       expect(user).not_to be_valid
     end
@@ -25,13 +25,60 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  describe 'relationship' do
-    it 'should delete websites when user is deleted' do
-      website = Fabricate(:website)
-      user = website.user
-      expect {
-          User.destroy(user)
-        }.to change(Website, :count).by(-1)
+  describe '#at_signup_limit?' do
+    context 'without subscription' do
+      it 'returns true when exhausted_freebies?' do
+        user = Fabricate.build(:user, password: 'abc', freebie_count: 0)
+        expect(user.at_signup_limit?).to be_truthy
+      end
+      it 'returns false when !exhausted_freebies?' do
+        user = Fabricate.build(:user, password: 'abc', freebie_count: 1)
+        expect(user.at_signup_limit?).to be_falsey
+      end
+    end
+    context 'with subscription' do
+      it 'returns true when exhausted_freebies? and exhausted_subscription?' do
+        user = Fabricate.create(:user, password: 'abc123567', freebie_count: 0)
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
+            }]
+          }
+        })
+        100.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
+
+        expect(user.at_signup_limit?).to be_truthy
+      end
+      it 'returns false when !exhausted_freebies?' do
+        user = Fabricate.create(:user, password: 'abc123567', freebie_count: 1)
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
+            }]
+          }
+        })
+        100.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
+
+        expect(user.at_signup_limit?).to be_falsey
+      end
+      it 'returns false when !exhausted_subscription?' do
+        user = Fabricate.create(:user, password: 'abc123567', freebie_count: 0)
+        user.create_subscription(customer: {
+          subscriptions: {
+            data: [{
+              current_period_end: 1.day.from_now.to_i,
+              status: 'active'
+            }]
+          }
+        })
+        99.times { Fabricate.create(:signup, user: user, influential: true, type: 'SubscriptionSignup') }
+
+        expect(user.at_signup_limit?).to be_falsey
+      end
     end
   end
 end

@@ -15,9 +15,12 @@ class ChecksInfluenceJob < ActiveJob::Base
       email: email,
       influential: influential,
       data: data,
-      hidden: user.at_signup_limit?
+      hidden: user.at_signup_limit?,
+      type: user.exhausted_freebies? ? 'SubscriptionSignup' : 'FreeSignup'
     )
 
-    InfluencerMailer.influencer_email(user, signup).deliver_now if influential && !user.at_signup_limit?
+    if influential && !user.at_signup_limit?
+      InfluencerMailer.influencer_email(user, signup).deliver_now
+    end
   end
 end

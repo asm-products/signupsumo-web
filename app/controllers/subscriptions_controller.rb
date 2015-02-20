@@ -2,8 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @subscription = current_user.subscription
-    @subscription ||= Subscription.new
+    @subscription = current_user.subscription || Subscription.new
   end
 
   def create

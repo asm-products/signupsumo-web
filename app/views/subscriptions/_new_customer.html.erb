@@ -69,7 +69,7 @@
   <div style="padding: 40px 0 80px 0">
 
     <h2>
-      Subscribe 
+      Subscribe
 
       <%= link_to 'https://stripe.com' do %>
         <%= image_tag 'stripe.png', style: 'margin: -6px 0 0 6px' %>
@@ -97,19 +97,19 @@
             <div class="col-xs-4">
               <div class="form-group">
                 <label>CVC</label>
-                <input type="text" class="form-control input-lg" placeholder="99" data-stripe="cvc"> 
+                <input type="text" class="form-control input-lg" placeholder="99" data-stripe="cvc">
               </div>
             </div>
             <div class="col-xs-4">
               <div class="form-group">
                 <label>Exp Month</label>
-                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%m') %>" data-stripe="exp-month"> 
+                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%m') %>" data-stripe="exp-month">
               </div>
             </div>
             <div class="col-xs-4">
               <div class="form-group">
                 <label>Exp Year</label>
-                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%Y') %>" data-stripe="exp-year"> 
+                <input type="text" class="form-control input-lg" placeholder="<%= Date.today.strftime('%Y') %>" data-stripe="exp-year">
               </div>
             </div>
           </div>
