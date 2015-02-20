@@ -33,8 +33,6 @@ module StripeCustomer
   def refresh_stripe_customer
     if customer = Stripe::Customer.retrieve(self.customer[:id])
       self.customer = customer.as_json
-      self.user.active_until = Time.at(stripe_subscription[:current_period_end])
-      self.user.save
       save
     end
   end

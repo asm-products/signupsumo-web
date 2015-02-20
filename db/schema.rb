@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150219234837) do
     t.string   "authentication_token",                   null: false
     t.boolean  "admin",                  default: false, null: false
     t.integer  "freebie_count",          default: 10
-    t.datetime "active_until"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
