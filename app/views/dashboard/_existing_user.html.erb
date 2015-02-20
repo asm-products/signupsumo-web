@@ -98,7 +98,7 @@
   </div>
 </div>
 
-<% if current_user.subscription.nil? || current_user.subscription.inactive? %>
+<% if current_user.subscription.nil? || current_user.subscription.needs_info? %>
   <hr>
 
   <div class="container">

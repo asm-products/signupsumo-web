@@ -24,10 +24,14 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  def stripe_subscription
-    @stripe_subscription ||= customer &&
+  def stripe_subscriptions
+    customer &&
       customer[:subscriptions] &&
-      customer[:subscriptions][:data] &&
+      customer[:subscriptions][:data]
+  end
+
+  def stripe_subscription
+    @stripe_subscription ||= stripe_subscriptions &&
       active_stripe_subscription
   end
 
@@ -35,7 +39,7 @@ class Subscription < ActiveRecord::Base
     stripe_subscription.present?
   end
 
-  def inactive?
-    stripe_customer.nil? || (user.exhausted_freebies? && stripe_subscription.nil?)
+  def needs_info?
+    stripe_customer.nil? || (stripe_subscriptions && !active?)
   end
 end
