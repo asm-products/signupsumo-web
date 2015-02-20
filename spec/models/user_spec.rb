@@ -9,7 +9,7 @@ RSpec.describe User, :type => :model do
     end
 
     it 'should not create duplicate email' do
-      user = Fabricate(:user)
+      Fabricate(:user)
       user = Fabricate.build(:user)
       expect(user).not_to be_valid
     end
@@ -22,16 +22,6 @@ RSpec.describe User, :type => :model do
     it 'should not accept password less than 8 characters' do
       user = Fabricate.build(:user, password: 'abc')
       expect(user).not_to be_valid
-    end
-  end
-
-  describe 'relationship' do
-    it 'should delete websites when user is deleted' do
-      website = Fabricate(:website)
-      user = website.user
-      expect {
-          User.destroy(user)
-        }.to change(Website, :count).by(-1)
     end
   end
 end
