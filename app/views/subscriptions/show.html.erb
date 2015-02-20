@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<% if @subscription %>
+<% if !@subscription.inactive? %>
   <%= render 'subscriptions/existing_customer' %>
 <% else %>
   <%= render 'subscriptions/new_customer' %>

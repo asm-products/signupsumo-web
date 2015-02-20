@@ -34,4 +34,8 @@ class Subscription < ActiveRecord::Base
   def active?
     stripe_subscription.present?
   end
+
+  def inactive?
+    stripe_customer.nil? || (user.exhausted_freebies? && stripe_subscription.nil?)
+  end
 end
