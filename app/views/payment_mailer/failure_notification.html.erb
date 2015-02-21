@@ -1,0 +1,34 @@
+<table class="mailer-card" bgcolor="#fff">
+  <tbody>
+    <tr class="header">
+      <td>
+        <%= link_to 'https://signupsumo.com' do %>
+          <%= image_tag "icons/sumo-embelem-yellow@2x.png", size: '120' %>
+        <% end %>
+        <br>
+        <br>
+        <h2>SignupSumo</h2><br>
+        There was a problem while processing your payment.<br>
+        Please login to your account to update billing information. <%= link_to 'Edit your account', edit_user_registration_url(host: 'signupsumo.com') %>.<br>
+      </td>
+    </tr>
+    <tr class="footer">
+      <td >
+        <table style="color: inherit">
+          <tbody>
+            <tr>
+              <td>
+                <%= image_tag "icons/sumo-embelem-yellow@2x.png", size: '80' %>
+              </td>
+              <td class="pad-left">
+                SignupSumo is the best way to get notified when influential users sign up.<br>
+                <br>
+                Not diggin' these emails? <%= link_to 'Edit your account', edit_user_registration_url(host: 'signupsumo.com') %>.<br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
