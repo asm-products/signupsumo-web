@@ -23,12 +23,19 @@ class SubscriptionsController < ApplicationController
   def stripe_hook
     if customer_id = params.try(:[], 'data').try(:[], 'object').try(:[], 'customer')
       if subscription = Subscription.where("customer->>'id' = ?", customer_id).first
-        RefreshStripeCustomer.perform_later(subscription)
+        case params['type']
+        when 'invoice.payment_succeeded'
+          RefreshStripeCustomer.perform_later(subscription)
+        when 'invoice.payment_failed'
+          NotifyPaymentFailure.perform_later(subscription)
+        end
       end
     end
 
     render nothing: true
   end
+
+private
 
   def subscription_create_params
     params.require(:subscription).
