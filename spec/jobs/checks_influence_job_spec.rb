@@ -37,5 +37,21 @@ RSpec.describe ChecksInfluenceJob, :type => :job do
       ChecksInfluenceJob.new.perform(user, 'pg@ycombinator.com')
     }.to change{ SubscriptionSignup.count }.by 1
   end
+  it 'delivers influencer email' do
+    stub_clearbit_request.
+      to_return(File.new('spec/webmocks/influential_person.txt'))
+    expect(InfluencerMailer).to receive(:influencer_email).and_call_original
+
+    ChecksInfluenceJob.new.perform(user, 'pg@ycombinator.com')
+  end
+  it 'does not deliver influencer email' do
+    stub_clearbit_request.
+      to_return(File.new('spec/webmocks/noninfluential_person.txt'))
+    stub_request(:get, "https://company-stream.clearbit.com/v1/companies/domain/ycombinator.com").
+      to_return(File.new('spec/webmocks/noninfluential_company.txt'))
+    expect(InfluencerMailer).not_to receive(:influencer_email)
+
+    ChecksInfluenceJob.new.perform(user, 'pg@ycombinator.com')
+  end
 
 end

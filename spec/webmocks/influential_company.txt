@@ -1,0 +1,84 @@
+HTTP/1.1 200 OK
+access-control-allow-headers: Authorization
+access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
+access-control-allow-origin: *
+Content-Type: application/json
+Date: Sat, 21 Feb 2015 02:06:08 GMT
+Server: nginx/1.4.6 (Ubuntu)
+status: 200 OK
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-content-type-options: nosniff
+Content-Length: 1721
+Connection: keep-alive
+
+{
+  "id": "2ec631b2-5615-4525-9e7d-fb5e34f1fdff",
+  "name": "Y Combinator",
+  "legalName": "Y Combinator",
+  "domain": "ycombinator.com",
+  "url": "http://www.ycombinator.com",
+  "site": {
+    "url": "http://ycombinator.com",
+    "title": "Y Combinator",
+    "h1": null,
+    "metaDescription": null,
+    "metaAuthor": null
+  },
+  "categories": [
+    "Startups",
+    "Consulting",
+    "Venture Capital",
+    "Finance",
+    "Venture capital",
+    "Investments"
+  ],
+  "description": "Y Combinator is a seed accelerator that provides financing services and business consulting to startup companies.",
+  "founders": [
+    "Andrew Levy",
+    "Trevor Blackwell",
+    "Robert Morris",
+    "Jessica Livingston",
+    "Paul Graham"
+  ],
+  "raised": 10250000,
+  "location": "Mountain View, California, Mountain View, California, United States",
+  "geo": null,
+  "employees": 50,
+  "logo": "https://dqus23xyrtg1i.cloudfront.net/v1/logos/2ec631b2-5615-4525-9e7d-fb5e34f1fdff",
+  "google": {
+    "rank": 7
+  },
+  "alexa": {
+    "usRank": 1376,
+    "globalRank": 1553
+  },
+  "facebook": {
+    "handle": "YCombinator"
+  },
+  "linkedin": {
+    "handle": "company/y-combinator"
+  },
+  "twitter": {
+    "handle": "ycombinator",
+    "id": 113130846,
+    "bio": "",
+    "followers": 209786,
+    "following": 113,
+    "location": "Mountain View",
+    "site": "http://t.co/Ptx1FAYCtj",
+    "avatar": "https://pbs.twimg.com/profile_images/489158549944008704/CUBFzSPL_normal.png"
+  },
+  "angellist": {
+    "id": 37606,
+    "handle": "y-combinator",
+    "description": null,
+    "followers": 6465,
+    "blogUrl": "http://blog.ycombinator.com"
+  },
+  "crunchbase": {
+    "handle": "y-combinator"
+  },
+  "emailProvider": false,
+  "personal": false
+}
