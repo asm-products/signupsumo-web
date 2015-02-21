@@ -21,20 +21,13 @@ class SubscriptionsController < ApplicationController
   end
 
   def webhook
-    event_json = JSON.parse(request.body.read)
-    event = Stripe::Event.retrieve(event_json["id"])
-
-    if event.type == "invoice.payment_succeeded"
-      data = event.data.object
-      customer_id = data.customer
-      event_subscription = data.lines.subscriptions.first
-      period_end = Time.at(event_subscription.period.end)
-
-      subscription = Subscription.where("customer->>'id' = ?", customer_id).first
-      subscription.update_attributes(active_until: period_end) if subscription
+    if customer_id = params.try(:[], 'data').try(:[], 'object').try(:[], 'customer')
+      if subscription = Subscription.where("customer->>'id' = ?", customer_id).first
+        RefreshStripeCustomer.perform_later(subscription)
+      end
     end
 
-    render nothing: true, status: 200
+    render nothing: true
   end
 
   def subscription_create_params
