@@ -1,0 +1,169 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Date: Sat, 21 Feb 2015 01:12:15 GMT
+Server: nginx/1.4.6 (Ubuntu)
+Status: 200 OK
+Strict-Transport-Security: max-age=31536000
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 598
+X-RateLimit-Reset: 1424481184
+Content-Length: 3460
+Connection: keep-alive
+
+{
+  "id": "837b271a-9fac-4050-8e46-e81f9fa349dd",
+  "name": {
+    "fullName": "Kevin Hale",
+    "givenName": "Paul",
+    "familyName": "Graham"
+  },
+  "email": "pg@ycombinator.com",
+  "gender": "male",
+  "location": null,
+  "geo": {
+    "city": null,
+    "state": null,
+    "country": null,
+    "lat": null,
+    "lng": null
+  },
+  "bio": null,
+  "site": "http://paulgraham.com",
+  "avatar": "https://d1ts43dypk8bqh.cloudfront.net/v1/avatars/837b271a-9fac-4050-8e46-e81f9fa349dd",
+  "employment": {
+    "name": "Y Combinator",
+    "title": null,
+    "domain": "ycombinator.com"
+  },
+  "facebook": {
+    "handle": "kevinhale"
+  },
+  "github": {
+    "handle": null,
+    "avatar": null,
+    "company": null,
+    "blog": null,
+    "followers": null,
+    "following": null
+  },
+  "twitter": {
+    "handle": "paulg",
+    "id": 183749519,
+    "bio": null,
+    "followers": 222023,
+    "following": 135,
+    "location": "",
+    "site": "http://paulgraham.com",
+    "avatar": "https://pbs.twimg.com/profile_images/1824002576/pg-railsconf.jpg"
+  },
+  "linkedin": {
+    "handle": "in/unfoldedorigami"
+  },
+  "googleplus": {
+    "handle": "113164290046816046245"
+  },
+  "angellist": {
+    "handle": null,
+    "bio": null,
+    "blog": null,
+    "site": null,
+    "followers": null,
+    "avatar": null
+  },
+  "klout": {
+    "handle": null,
+    "score": null
+  },
+  "foursquare": {
+    "handle": null
+  },
+  "aboutme": {
+    "handle": null,
+    "bio": null,
+    "avatar": null
+  },
+  "gravatar": {
+    "handle": null,
+    "urls": null,
+    "avatar": null,
+    "avatars": [
+
+    ]
+  },
+  "fuzzy": true,
+  "company": {
+    "id": "2ec631b2-5615-4525-9e7d-fb5e34f1fdff",
+    "name": "Y Combinator",
+    "legalName": "Y Combinator",
+    "domain": "ycombinator.com",
+    "url": "http://www.ycombinator.com",
+    "site": {
+      "url": "http://ycombinator.com",
+      "title": "Y Combinator",
+      "h1": null,
+      "metaDescription": null,
+      "metaAuthor": null
+    },
+    "categories": [
+      "Startups",
+      "Consulting",
+      "Venture Capital",
+      "Finance",
+      "Venture capital",
+      "Investments"
+    ],
+    "description": "Y Combinator is a seed accelerator that provides financing services and business consulting to startup companies.",
+    "founders": [
+      "Andrew Levy",
+      "Trevor Blackwell",
+      "Robert Morris",
+      "Jessica Livingston",
+      "Paul Graham"
+    ],
+    "raised": 10250000,
+    "location": "Mountain View, California, Mountain View, California, United States",
+    "geo": null,
+    "employees": 50,
+    "logo": "https://dqus23xyrtg1i.cloudfront.net/v1/logos/2ec631b2-5615-4525-9e7d-fb5e34f1fdff",
+    "google": {
+      "rank": 7
+    },
+    "alexa": {
+      "usRank": 1376,
+      "globalRank": 1553
+    },
+    "facebook": {
+      "handle": "YCombinator"
+    },
+    "linkedin": {
+      "handle": "company/y-combinator"
+    },
+    "twitter": {
+      "handle": "ycombinator",
+      "id": 113130846,
+      "bio": "",
+      "followers": 209786,
+      "following": 113,
+      "location": "Mountain View",
+      "site": "http://t.co/Ptx1FAYCtj",
+      "avatar": "https://pbs.twimg.com/profile_images/489158549944008704/CUBFzSPL_normal.png"
+    },
+    "angellist": {
+      "id": 37606,
+      "handle": "y-combinator",
+      "description": null,
+      "followers": 6465,
+      "blogUrl": "http://blog.ycombinator.com"
+    },
+    "crunchbase": {
+      "handle": "y-combinator"
+    },
+    "emailProvider": false,
+    "personal": false
+  }
+}
