@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get '/privacy' => 'pages#privacy',
     as: :privacy
 
-  post '/subscriptions/webhook' => 'subscriptions#webhook', as: :webhook
+  post '/subscriptions/webhook' => 'subscriptions#stripe_hook', as: :stripe_hook
 
   root 'pages#home'
 
