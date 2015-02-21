@@ -30,6 +30,7 @@ module StripeCustomer
   end
 
   def refresh_stripe_customer
+    @stripe_customer = nil
     if stripe_customer
       self.customer = stripe_customer.as_json
       save
