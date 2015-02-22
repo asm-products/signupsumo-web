@@ -31,6 +31,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    Sidekiq.redis { |c| c.flushdb }
     DatabaseCleaner.clean
   end
 end
