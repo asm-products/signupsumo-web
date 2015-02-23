@@ -4,6 +4,6 @@ class SubscriptionSignup < Signup
 private
 
   def ensure_subscription_start
-    self.user.subscription.subscribe_stripe_customer
+    self.user.subscription.subscribe_stripe_customer if self.user.subscription
   end
 end

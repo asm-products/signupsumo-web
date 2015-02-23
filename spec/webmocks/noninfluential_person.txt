@@ -1,0 +1,105 @@
+HTTP/1.1 200 OK
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Date: Sat, 21 Feb 2015 02:02:35 GMT
+Server: nginx/1.4.6 (Ubuntu)
+Status: 200 OK
+Strict-Transport-Security: max-age=31536000
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-RateLimit-Limit: 600
+X-RateLimit-Remaining: 599
+X-RateLimit-Reset: 1424484215
+Content-Length: 1871
+Connection: keep-alive
+
+{
+  "id": "4479b3bf-1a96-46d6-b19a-d275602254bf",
+  "name": {
+    "fullName": "Justin Barber",
+    "givenName": "Justin",
+    "familyName": "Barber"
+  },
+  "email": "barber.justin@gmail.com",
+  "gender": "male",
+  "location": "Peachtree Corners, GA 30092, USA",
+  "geo": {
+    "city": "Peachtree Corners",
+    "state": "GA",
+    "country": "US",
+    "lat": 33.9698929,
+    "lng": -84.2214551
+  },
+  "bio": "Cyclist&Coder",
+  "site": null,
+  "avatar": "https://d1ts43dypk8bqh.cloudfront.net/v1/avatars/4479b3bf-1a96-46d6-b19a-d275602254bf",
+  "employment": {
+    "name": "",
+    "title": null,
+    "domain": null
+  },
+  "facebook": {
+    "handle": "barber.justin"
+  },
+  "github": {
+    "handle": "barberj",
+    "avatar": "https://avatars.githubusercontent.com/u/503436?v=3",
+    "company": "",
+    "blog": "",
+    "followers": 9,
+    "following": 17
+  },
+  "twitter": {
+    "handle": "atlbiker",
+    "id": 18982738,
+    "bio": "Cyclist&Coder",
+    "followers": 479,
+    "following": 431,
+    "location": "Peachtree Corners",
+    "site": null,
+    "avatar": "https://pbs.twimg.com/profile_images/1091636645/prof.JPG"
+  },
+  "linkedin": {
+    "handle": "in/jbarber"
+  },
+  "googleplus": {
+    "handle": "111310202247746756716"
+  },
+  "angellist": {
+    "handle": null,
+    "bio": null,
+    "blog": null,
+    "site": null,
+    "followers": null,
+    "avatar": null
+  },
+  "klout": {
+    "handle": null,
+    "score": null
+  },
+  "foursquare": {
+    "handle": null
+  },
+  "aboutme": {
+    "handle": null,
+    "bio": null,
+    "avatar": null
+  },
+  "gravatar": {
+    "handle": "barberj",
+    "urls": [
+
+    ],
+    "avatar": "http://0.gravatar.com/avatar/b2d7e09db6ff29c1695600910caa81f6",
+    "avatars": [
+      {
+        "url": "http://0.gravatar.com/avatar/b2d7e09db6ff29c1695600910caa81f6",
+        "type": "thumbnail"
+      }
+    ]
+  },
+  "fuzzy": true,
+  "company": null
+}

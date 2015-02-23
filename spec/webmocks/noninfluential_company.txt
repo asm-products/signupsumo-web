@@ -1,0 +1,75 @@
+HTTP/1.1 200 OK
+access-control-allow-headers: Authorization
+access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
+access-control-allow-origin: *
+Content-Type: application/json
+Date: Sat, 21 Feb 2015 02:08:07 GMT
+Server: nginx/1.4.6 (Ubuntu)
+status: 200 OK
+strict-transport-security: max-age=31536000
+vary: Accept-Encoding
+x-content-type-options: nosniff
+Content-Length: 1839
+Connection: keep-alive
+
+{
+  "id": "27748de2-8562-41cf-9b3e-519fcdda0e27",
+  "name": "eCommHub",
+  "legalName": "eCommHub",
+  "domain": "ecommhub.com",
+  "url": "http://ecommhub.com",
+  "site": {
+    "url": "http://ecommhub.com",
+    "title": "eCommHub | eCommerce Automation for Everyone",
+    "h1": "eCommHub",
+    "metaDescription": "eCommHub integrates your storefronts and marketplaces to any fulfillment center, drop shipper or warehouse. Finally, one platform for ecommerce automation.",
+    "metaAuthor": null
+  },
+  "categories": [
+    "E-Commerce"
+  ],
+  "description": "eCommHub is a software platform for online stores that rely on third-party vendors, distributors, suppliers and fulfillment centers.",
+  "founders": [
+    "Kurt Heinrich"
+  ],
+  "raised": 2700000.0,
+  "location": "730 Peachtree St. NW\nSuite 330\nAtlanta, GA 30308\nUSA",
+  "geo": null,
+  "employees": 12,
+  "logo": "https://dqus23xyrtg1i.cloudfront.net/v1/logos/27748de2-8562-41cf-9b3e-519fcdda0e27",
+  "google": {
+    "rank": 3
+  },
+  "alexa": {
+    "usRank": 164841,
+    "globalRank": 158549
+  },
+  "facebook": {
+    "handle": "ecommhub"
+  },
+  "linkedin": {
+    "handle": "company/ecommhub"
+  },
+  "twitter": {
+    "handle": "eCommHub",
+    "id": 177663430,
+    "bio": "eCommHub automates dropshipping and third-party fulfillment for ecommerce retailers who use @Shopify, @Magento, @BigCommerce, @3dcart @Amazon and more!",
+    "followers": 619,
+    "following": 429,
+    "location": "Atlanta, GA",
+    "site": "http://t.co/SlOLJJ9jo2",
+    "avatar": "https://pbs.twimg.com/profile_images/378800000096920357/12d6402a1a9e1e77cd5ba29eb258c832_normal.png"
+  },
+  "angellist": {
+    "id": null,
+    "handle": null,
+    "description": null,
+    "followers": null,
+    "blogUrl": null
+  },
+  "crunchbase": {
+    "handle": "ecommhub"
+  },
+  "emailProvider": false,
+  "personal": false
+}

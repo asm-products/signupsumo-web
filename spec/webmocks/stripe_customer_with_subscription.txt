@@ -1,0 +1,133 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sat, 21 Feb 2015 02:35:01 GMT
+Content-Type: application/json;charset=utf-8
+Content-Length: 3646
+Connection: keep-alive
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET, POST, HEAD, OPTIONS, DELETE
+Access-Control-Allow-Origin: *
+Access-Control-Max-Age: 300
+Cache-Control: no-cache, no-store
+Request-Id: req_TyB8t9KkxItkrOcy
+Stripe-Version: 2015-01-11
+Strict-Transport-Security: max-age=31556926; includeSubDomains
+
+{
+  "object": "customer",
+  "created": 1424439783,
+  "id": "cus_5jkYsxST64C5tD",
+  "livemode": false,
+  "description": null,
+  "email": "asdf@example.com",
+  "delinquent": false,
+  "metadata": {},
+  "subscriptions": {
+    "object": "list",
+    "total_count": 4,
+    "has_more": false,
+    "url": "/v1/customers/cus_5jkYsxST64C5tD/subscriptions",
+    "data": [
+      {
+        "id": "sub_5jwqxrOeBKQEUf",
+        "plan": {
+          "interval": "month",
+          "name": "100 Monthly",
+          "created": 1424381463,
+          "amount": 900,
+          "currency": "usd",
+          "id": "100_monthly",
+          "object": "plan",
+          "livemode": false,
+          "interval_count": 1,
+          "trial_period_days": null,
+          "metadata": {},
+          "statement_descriptor": null
+        },
+        "object": "subscription",
+        "start": 1424485461,
+        "status": "active",
+        "customer": "cus_5jkYsxST64C5tD",
+        "cancel_at_period_end": false,
+        "current_period_start": 1424485461,
+        "current_period_end": 1426904661,
+        "ended_at": null,
+        "trial_start": null,
+        "trial_end": null,
+        "canceled_at": null,
+        "quantity": 1,
+        "application_fee_percent": null,
+        "discount": null,
+        "tax_percent": null,
+        "metadata": {}
+      }
+    ]
+  },
+  "discount": null,
+  "account_balance": 0,
+  "currency": "usd",
+  "cards": {
+    "object": "list",
+    "total_count": 1,
+    "has_more": false,
+    "url": "/v1/customers/cus_5jkYsxST64C5tD/cards",
+    "data": [
+      {
+        "id": "card_15YH3aLYsJ7UeIgyR3Ri2AB1",
+        "object": "card",
+        "last4": "4242",
+        "brand": "Visa",
+        "funding": "credit",
+        "exp_month": 2,
+        "exp_year": 2016,
+        "fingerprint": "I8eHgUmtatKla2wm",
+        "country": "US",
+        "name": null,
+        "address_line1": null,
+        "address_line2": null,
+        "address_city": null,
+        "address_state": null,
+        "address_zip": null,
+        "address_country": null,
+        "cvc_check": "pass",
+        "address_line1_check": null,
+        "address_zip_check": null,
+        "dynamic_last4": null,
+        "customer": "cus_5jkYsxST64C5tD"
+      }
+    ]
+  },
+  "default_card": "card_15YH3aLYsJ7UeIgyR3Ri2AB1",
+  "sources": {
+    "object": "list",
+    "total_count": 1,
+    "has_more": false,
+    "url": "/v1/customers/cus_5jkYsxST64C5tD/sources",
+    "data": [
+      {
+        "id": "card_15YH3aLYsJ7UeIgyR3Ri2AB1",
+        "object": "card",
+        "last4": "4242",
+        "brand": "Visa",
+        "funding": "credit",
+        "exp_month": 2,
+        "exp_year": 2016,
+        "fingerprint": "I8eHgUmtatKla2wm",
+        "country": "US",
+        "name": null,
+        "address_line1": null,
+        "address_line2": null,
+        "address_city": null,
+        "address_state": null,
+        "address_zip": null,
+        "address_country": null,
+        "cvc_check": "pass",
+        "address_line1_check": null,
+        "address_zip_check": null,
+        "dynamic_last4": null,
+        "customer": "cus_5jkYsxST64C5tD"
+      }
+    ]
+  },
+  "default_source": "card_15YH3aLYsJ7UeIgyR3Ri2AB1"
+}
