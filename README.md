@@ -28,6 +28,8 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
   - ``curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose``
 - Copy sample `database.yml`
   - $ `cp config/database.yml.sample config/database.yml`
+- Copy sample `.env`
+  - $ `cp .env.sample .env`
 - Build the Docker containers
   - $ `docker-compose build`
 - Run the app
