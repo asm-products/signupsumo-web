@@ -21,6 +21,7 @@ module SignupsumoWeb
     # config.i18n.default_locale = :de
 
     config.active_job.queue_adapter = :sidekiq
+    config.exceptions_app = self.routes
 
     config.middleware.insert_before 0, 'Rack::Cors' do
       allow do
