@@ -24,20 +24,24 @@ Visit [https://assembly.com](https://assembly.com) to learn more.
   - $ `boot2docker start`
   - $ `$(boot2docker shellinit)`
   - To persist the environment variables across shell sessions, you can add `$(boot2docker shellinit)` to your `~/.bashrc` file
-- [Install Fig](http://www.fig.sh/install.html)
-  - ``curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-`uname -s`-`uname -m` > /usr/local/bin/fig; chmod +x /usr/local/bin/fig``
+- [Install docker-compose (formerly fig)](http://docs.docker.com/compose/install)
+  - ``curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose``
+- Copy sample `database.yml`
+  - $ `cp config/database.yml.sample config/database.yml`
+- Copy sample `.env`
+  - $ `cp .env.sample .env`
 - Build the Docker containers
-  - $ `fig build`
+  - $ `docker-compose build`
 - Run the app
-  - $ `fig up`
+  - $ `docker-compose up`
 - Migrate the database
   - Do this in another terminal window
-    - `fig run web rake db:create db:migrate`
+    - `docker-compose run web rake db:create db:migrate`
 - Access the app locally
   - Run `boot2docker ip` to get the ip address of the Docker daemon
   - View the app at `IP_ADDRESS:3000`
 
 #### Development notes
 
-- If you modify the `Gemfile` or the `Dockerfile` you will need to run `fig build` to rebuild the container.
+- If you modify the `Gemfile` or the `Dockerfile` you will need to run `docker-compose build` to rebuild the container.
 
